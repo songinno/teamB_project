@@ -1,0 +1,136 @@
+/* reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+button, input {
+    outline: none;
+    border: none;
+}
+
+/* common */
+.wrap {
+    font-size: 20px;
+    height: 5000px;
+}
+
+.hide {
+    display: none !important;
+}
+
+/* -------------------------------------------------- */
+/* header css */
+header {
+    width: 100%;
+    background: skyblue;
+    position: fixed;
+}
+
+header .inner-header {
+    height: 30px;
+    background: orange;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .inner-header h1 {
+    background: blue;
+}
+
+header .inner-header h1.logo {
+    width: 200px;
+}
+
+header .inner-header h1.logo a {
+
+}
+
+header .inner-header h1.logo a img {
+    width: 80%;
+    height: 30px;
+}
+
+
+header .inner-header .gnb {
+    background: red;
+}
+
+header .inner-header .gnb ul {
+    display: flex;
+}
+
+header .inner-header .gnb ul li {
+    margin-right: 20px;
+}
+
+header .inner-header .tnb {
+    background: yellow;
+    display: flex;
+}
+
+header .inner-header .tnb .search-box {
+    display: flex;
+    width: 300px;
+    margin-right: 20px;
+    background: lightgray;
+}
+
+header .inner-header .tnb .search-box i {
+    margin-right: 5px;
+}
+
+header .inner-header .tnb .search-box label input {
+    width: 260px;
+}
+
+header .inner-header .tnb ul {
+    display: flex;
+}
+header .inner-header .tnb ul li {
+    margin-right: 20px;
+}
+
+
+/* login-box css */
+.login-box, .join-box {
+    width: 500px;
+    height: 700px;
+    background: lightgray;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-box h1, .join-box h1 {
+    background: red;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.login-box h2, .join-box h2 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.login-box form {
+
+}
+
+.login-box form label, .join-box form label {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.login-box form label input, .join-box form label input {
+    width: 70%;;
+    height: 30px;
+}
+
+.login-box form label #login-btn, .join-box form label #join-btn {
+    color: white;
+    background: rgb(255, 28, 244);
+    width: 70%;
+    height: 30px;
+}

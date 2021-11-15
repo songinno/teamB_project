@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.teamProject.moviePedia.repository.memberMapper">
+    <!-- resultmap  -->
+    <resultMap id="memberResultMap" type="com.spring.teamProject.moviePedia.domain.Member">
+        <result property="memNum" column="mem_num"/>
+        <result property="name" column="mem_name"/>
+        <result property="e" column="mem_email"/>
+        <result property="pw" column="mem_password"/>
+    </resultMap>
+
+    <!-- 회원가입 -->
+    <insert id="join">
+        INSERT INTO "member" (mem_num, mem_name, mem_email, mem_password)
+        VALUES (seq_mem.nextval, #{name}, #{e}, #{pw})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 검색 엔진 최적화(SEO) -->
+    <meta name="author" content="team2">
+    <meta name="description" content="team2's Web Site">
+
+    <!-- http://ogp.me -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="team2's MoviePedia">
+    <meta property="og:title" content="Soon9's MoviePedia">
+    <meta property="og:description" content="Welcome to team2's MoviePedia">
+    <meta property="og:image" content="img/camera.png">
+    <meta property="og:url" content="http://www.moviepedia.co.kr">
+
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:site_name" content="team2's MoviePedia">
+    <meta property="twitter:title" content="team2's MoviePedia">
+    <meta property="twitter:description" content="Welcome to team2's MoviePedia">
+    <meta property="twitter:image" content="img/camera.png">
+    <meta property="twitter:url" content="http://www.moviepedia.co.kr">
+
+    <title>Moive Pedia</title>
+
+    <!-- 파비콘 넣기 -->
+    <link rel="icon" href="camera.ico">
+    <link rel="apple-touch-icon" href="camera.ico">
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- linear icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- jquery -->
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+
+    <!-- libraries -->
+    <!-- scrolla js -->
+    <!-- <script src="js/scrolla.jquery.min.js" defer></script> -->
+    <!-- slick js -->
+    <!-- <script src="js/slick.min.js" defer></script> -->
+
+    <!-- custom js -->
+    <!-- <script src="js/config.js" defer></script> -->
+    <!-- <script src="js/gnb-event.js" defer></script> -->
+    <!-- <script src="js/scroll-event.js" defer></script> -->
+    
+</head>
+<body>
+    <div class="wrap">
+        <!-- header -->
+        <header>
+            <div class="inner-header">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="img/camera.png" alt="메인 로고이미지">
+                    </a>
+                </h1>
+                <nav class="gnb">
+                    <ul>
+                        <li><a href="#">영화</a></li>
+                        <li><a href="#">TV 프로그램</a></li>
+                        <li><a href="#">책</a></li>
+                    </ul>
+                </nav>
+                <nav class="tnb">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <label>
+                            <input type="text" autocomplete="off" placeholder="콘텐츠, 인물, 컬렉션, 유저를 검색해보세요." name="searchKeyword">
+                        </label>
+                    </div>
+                    <ul>
+                        <li><a href="/">로그인</a></li>
+                        <li><a href="/">회원가입</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- login-box -->
+        <div class="login-box hide">
+            <h1>
+                Movie Pedia
+            </h1>
+
+            <h2>로그인</h2>
+
+            <form action="/login/check" method="post">
+                <label>
+                    <input type="text" name="e" placeholder="이메일">
+                </label>
+
+                <label>
+                    <input type="text" name="pw" placeholder="비밀번호">
+                </label>
+
+                <label>
+                    <button id="login-btn" type="submit">로그인</button>
+                </label>
+            </form>
+        </div>
+        <!-- join-box -->
+        <div class="join-box">
+            <h1>
+                Movie Pedia
+            </h1>
+
+            <h2>회원가입</h2>
+
+            <form action="/member/list" method="post">
+                <label>
+                    <input type="text" name="name" placeholder="이름">
+                </label>
+                <label>
+                    <input type="text" name="e" placeholder="이메일">
+                </label>
+
+                <label>
+                    <input type="text" name="pw" placeholder="비밀번호">
+                </label>
+
+                <label>
+                    <button id="join-btn" type="submit">회원가입</button>
+                </label>
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- /div.wrap -->
+</body>
+</html>
