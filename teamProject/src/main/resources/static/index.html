@@ -5,44 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 검색 엔진 최적화(SEO) -->
-    <meta name="author" content="teamB">
-    <meta name="description" content="teamB's Web Site">
-
-    <!-- http://ogp.me -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="teamB's MoviePedia">
-    <meta property="og:title" content="teamB's MoviePedia">
-    <meta property="og:description" content="Welcome to teamB's MoviePedia">
-    <meta property="og:image" content="img/camera.png">
-    <meta property="og:url" content="http://www.moviepedia.co.kr">
-
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:site_name" content="teamB's MoviePedia">
-    <meta property="twitter:title" content="teamB's MoviePedia">
-    <meta property="twitter:description" content="Welcome to teamB's MoviePedia">
-    <meta property="twitter:image" content="img/camera.png">
-    <meta property="twitter:url" content="http://www.moviepedia.co.kr">
-
-    <title>Moive Pedia</title>
+    <title>무비피디아(MOVIE PEDIA) - 현재상영 영화 평가 사이트</title>
 
     <!-- 파비콘 넣기 -->
-    <link rel="icon" href="camera.ico">
-    <link rel="apple-touch-icon" href="camera.ico">
+    <link rel="icon" href="mainLogo.ico">
+    <link rel="apple-touch-icon" href="mainLogo.ico">
+
+    <!-- linear icons -->
+    <!-- https://linearicons.com/free#cdn -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
     <!-- reset css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-
-    <!-- linear icons -->
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-
     <!-- custom css -->
     <link rel="stylesheet" href="css/main.css">
 
+    <!-- custom js -->
+    <script src="./js/menuClick.js" defer></script>
+
+    <!-- 오렌지색상 ff9b30 -->
+    <!-- 네이비색상 0d1a40 -->
 
 </head>
 
@@ -52,7 +42,7 @@
         <header>
             <div class="inner-header">
                 <h1 class="logo">
-                    <a href="#">
+                    <a href="/">
                         <img src="img/main_logo.png" alt="무비피디아 로고이미지">
                     </a>
                 </h1>
@@ -60,9 +50,9 @@
                 <!-- 네비게이션 부분 -->
                 <nav class="gnb">
                     <ul>
-                        <li><a href="#">박스오피스</a></li>
-                        <li><a href="#">현재상영작</a></li>
-                        <li><a href="#">상영예정작</a></li>
+                        <li><a id="boxOffice" href="/movie/boxoffice">박스오피스</a></li>
+                        <li><a href="/movie/screening">현재상영작</a></li>
+                        <li><a href="/movie/screenyet">상영예정작</a></li>
                     </ul>
                 </nav>
 
@@ -71,8 +61,8 @@
                         <li>
                             <form action="/search" method="get" class="search">
                                 <label>
-                                    <i class="fas fa-search"></i>
-                                    <input type="text" placeholder="영화 제목을 입력하세요." name="searchKey" id="search">
+                                    <span class="lnr lnr-magnifier"></span>
+                                    <input type="text" placeholder="영화를 검색해보세요." name="searchKey" id="search">
                                 </label>
                             </form>
                         </li>
@@ -84,127 +74,278 @@
         </header>
         <!-- //header -->
 
-        <!-- login-box -->
-        <div class="login-box hide">
-            <h1>
-                Movie Pedia
-            </h1>
-
-            <h2>로그인</h2>
-
-            <form action="/login/check" method="post">
-                <label>
-                    <input type="text" name="e" placeholder="이메일">
-                </label>
-
-                <label>
-                    <input type="text" name="pw" placeholder="비밀번호">
-                </label>
-
-                <label>
-                    <button id="login-btn" type="submit">로그인</button>
-                </label>
-            </form>
-        </div>
-        <!-- join-box -->
-        <div class="join-box display">
-            <h1>
-                Movie Pedia
-            </h1>
-
-            <h2>회원가입</h2>
-
-            <form action="/member/list" method="post">
-                <label>
-                    <input type="text" name="name" placeholder="이름">
-                </label>
-                <label>
-                    <input type="text" name="e" placeholder="이메일">
-                </label>
-
-                <label>
-                    <input type="text" name="pw" placeholder="비밀번호">
-                </label>
-
-                <label>
-                    <button id="join-btn" type="submit">회원가입</button>
-                </label>
-            </form>
-        </div>
-
 
         <!-- section movie-content -->
         <section class="movie-content">
-            <div class="movie-rank">
+            <div class="movie-rank" id="boxOfficeRank">
                 <div class="movie-rank-title">
                     <p>박스오피스 순위</p>
                 </div>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <div class="movie-img">
-                                <img src="https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU"
-                                    alt="영화 장르만 로맨스 이미지" class="img">
-                            </div>
-                            <div class="movie-info">
-                                <div class="movie-title">
-                                    장르만 로맨스
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="movie-img">
-                                <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
-                                    alt="영화 이터널스 이미지" class="img">
-                            </div>
-                            <div class="movie-info">
-                                <div class="movie-title">
-                                    이터널스
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="movie-img">
-                                <img src="https://an2-img.amz.wtchn.net/image/v2/70a085e41044b6622945c471bc8a1078.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME5qSTVOalU0TVRBMk9URTFOemsySWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LnNLNUVteTZVQWJOWjBrWWMwcFhUSW9WdDJrT0s0Nk9Qc3VNazh5bVROOG8"
-                                    alt="영화 디어에반핸슨 이미지" class="img">
-                            </div>
-                            <div class="movie-info">
-                                <div class="movie-title">
-                                    디어 에반 핸슨
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="movie-img">
-                                <img src="https://an2-img.amz.wtchn.net/image/v2/63456fa9804b8ba4729c5e61e4d540cb.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNeU56a3hPREk1TXpBeE16VTRNalE1SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lkpxci1MZWF1Nmx3YTZLNVM4V2RUWkRhdDhqanNQWkUzQkloWXpaSnkyREU"
-                                    alt="영화 듄 이미지" class="img"></div>
-                            <div class="movie-info">
-                                <div class="movie-title">
-                                    듄
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="movie-img">
-                                <img src="https://an2-img.amz.wtchn.net/image/v2/c37d92cb68e27b2b9524c335b20e4bca.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME56YzROVFV5TWpFME9EYzNPRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LkdqNFhHT3hVb0dBQ0hHZkExMXhHR3VyZnd1aGllNzVjNVlQb3JlbFp2bjA"
-                                    alt="영화 프렌치 디스패치 이미지" class="img">
-                            </div>
-                            <div class="movie-info">
-                                <div class="movie-title">
-                                    프렌치 디스패치
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                <div class="movie-box">
+                    <div class="movies">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU"
+                                            alt="장르만 로맨스" class="img">
+                                            <div class="rank-num">1</div>
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">장르만 로맨스</div>
+                                        <div class="m-op-county">2021 | 한국</div>
+                                        <div class="movie-grade">★3.0 (568명)</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
+                                            alt="이터널스" class="img">
+                                            <div class="rank-num">2</div>
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">이터널스</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.1 (2만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
+                                            alt="이터널스" class="img">
+                                            <div class="rank-num">3</div>
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">이터널스</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.1 (2만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/70a085e41044b6622945c471bc8a1078.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME5qSTVOalU0TVRBMk9URTFOemsySWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LnNLNUVteTZVQWJOWjBrWWMwcFhUSW9WdDJrT0s0Nk9Qc3VNazh5bVROOG8"
+                                            alt="디어에반핸슨" class="img">
+                                            <div class="rank-num">4</div>
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">디어 에반 핸슨</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.0 (646명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/63456fa9804b8ba4729c5e61e4d540cb.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNeU56a3hPREk1TXpBeE16VTRNalE1SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lkpxci1MZWF1Nmx3YTZLNVM4V2RUWkRhdDhqanNQWkUzQkloWXpaSnkyREU"
+                                            alt="듄" class="img">
+                                            <div class="rank-num">5</div>
+                                        </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">듄</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.9 (4만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/c37d92cb68e27b2b9524c335b20e4bca.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME56YzROVFV5TWpFME9EYzNPRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LkdqNFhHT3hVb0dBQ0hHZkExMXhHR3VyZnd1aGllNzVjNVlQb3JlbFp2bjA"
+                                            alt="프렌치 디스패치" class="img">
+                                            <div class="rank-num">6</div>
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">프렌치 디스패치</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.9 (230명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="arrow-btn left">
+                        <span class="lnr lnr-chevron-left-circle"></span>
+                    </div>
+                    <div class="arrow-btn right">
+                        <span class="lnr lnr-chevron-right-circle"></span>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="movie-rank" id="showing">
+                <div class="movie-rank-title">
+                    <p>현재상영작</p>
+                </div>
+                <div class="movie-box">
+                    <div class="movies">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU"
+                                            alt="장르만 로맨스" class="img">
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">장르만 로맨스</div>
+                                        <div class="m-op-county">2021 | 한국</div>
+                                        <div class="movie-grade">★3.0 (568명)</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
+                                            alt="이터널스" class="img">
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">이터널스</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.1 (2만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/70a085e41044b6622945c471bc8a1078.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME5qSTVOalU0TVRBMk9URTFOemsySWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LnNLNUVteTZVQWJOWjBrWWMwcFhUSW9WdDJrT0s0Nk9Qc3VNazh5bVROOG8"
+                                            alt="디어에반핸슨" class="img">
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">디어 에반 핸슨</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.0 (646명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/63456fa9804b8ba4729c5e61e4d540cb.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNeU56a3hPREk1TXpBeE16VTRNalE1SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lkpxci1MZWF1Nmx3YTZLNVM4V2RUWkRhdDhqanNQWkUzQkloWXpaSnkyREU"
+                                            alt="듄" class="img"></div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">듄</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.9 (4만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/c37d92cb68e27b2b9524c335b20e4bca.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME56YzROVFV5TWpFME9EYzNPRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LkdqNFhHT3hVb0dBQ0hHZkExMXhHR3VyZnd1aGllNzVjNVlQb3JlbFp2bjA"
+                                            alt="프렌치 디스패치" class="img" >
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">프렌치 디스패치</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.9 (230명)</div>
+                                    </div>
+                                </a>
+                            </li>                           
+                        </ul>
+                    </div>
+                    <div class="arrow-btn left">
+                        <span class="lnr lnr-chevron-left-circle"></span>
+                    </div>
+                    <div class="arrow-btn right">
+                        <span class="lnr lnr-chevron-right-circle"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-rank" id="screenYet">
+                <div class="movie-rank-title">
+                    <p>상영예정작</p>
+                </div>
+                <div class="movie-box">
+                    <div class="movies">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU"
+                                            alt="장르만 로맨스" class="img">
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">장르만 로맨스</div>
+                                        <div class="m-op-county">2021 | 한국</div>
+                                        <div class="movie-grade">★3.0 (568명)</div>
+
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
+                                            alt="이터널스" class="img">
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">이터널스</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.1 (2만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/70a085e41044b6622945c471bc8a1078.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME5qSTVOalU0TVRBMk9URTFOemsySWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LnNLNUVteTZVQWJOWjBrWWMwcFhUSW9WdDJrT0s0Nk9Qc3VNazh5bVROOG8"
+                                            alt="디어에반핸슨" class="img">
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">디어 에반 핸슨</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.0 (646명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/63456fa9804b8ba4729c5e61e4d540cb.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNeU56a3hPREk1TXpBeE16VTRNalE1SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lkpxci1MZWF1Nmx3YTZLNVM4V2RUWkRhdDhqanNQWkUzQkloWXpaSnkyREU"
+                                            alt="듄" class="img"></div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">듄</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.9 (4만명)</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="movie-img">
+                                        <img src="https://an2-img.amz.wtchn.net/image/v2/c37d92cb68e27b2b9524c335b20e4bca.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME56YzROVFV5TWpFME9EYzNPRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LkdqNFhHT3hVb0dBQ0hHZkExMXhHR3VyZnd1aGllNzVjNVlQb3JlbFp2bjA"
+                                            alt="프렌치 디스패치" class="img" >
+                                    </div>
+                                    <div class="movie-info">
+                                        <div class="movie-title">프렌치 디스패치</div>
+                                        <div class="m-op-county">2021 | 미국</div>
+                                        <div class="movie-grade">★3.9 (230명)</div>
+                                    </div>
+                                </a>
+                            </li>                           
+                        </ul>
+                    </div>
+                    <div class="arrow-btn left">
+                        <span class="lnr lnr-chevron-left-circle"></span>
+                    </div>
+                    <div class="arrow-btn right">
+                        <span class="lnr lnr-chevron-right-circle"></span>
+                    </div>
+                </div>
             </div>
         </section>
         <!-- //section movie-content -->

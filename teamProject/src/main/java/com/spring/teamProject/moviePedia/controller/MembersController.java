@@ -22,6 +22,12 @@ public class MembersController {
         this.membersService = membersService;
     }
 
+    //# 박스오피스 화면
+    @GetMapping("/movie/boxoffice")
+    public String boxoffice() {
+        return "movie/boxoffice";
+    }
+
     //#회원가입 화면
     @GetMapping("/join")
     public String join() {

@@ -1,45 +1,33 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 검색 엔진 최적화(SEO) -->
-    <meta name="author" content="teamB">
-    <meta name="description" content="teamB's Web Site">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>무비피디아(MOVIE PEDIA) - 현재상영 영화 평가 사이트</title>
 
-    <!-- http://ogp.me -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="teamB's MoviePedia">
-    <meta property="og:title" content="teamB's MoviePedia">
-    <meta property="og:description" content="Welcome to teamB's MoviePedia">
-    <meta property="og:image" content="img/camera.png">
-    <meta property="og:url" content="http://www.moviepedia.co.kr">
+<!-- 파비콘 넣기 -->
+<link rel="icon" href="/mainLogo.ico">
+<link rel="apple-touch-icon" href="/mainLogo.ico">
 
-    <meta property="twitter:card" content="summary">
-    <meta property="twitter:site_name" content="teamB's MoviePedia">
-    <meta property="twitter:title" content="teamB's MoviePedia">
-    <meta property="twitter:description" content="Welcome to teamB's MoviePedia">
-    <meta property="twitter:image" content="img/camera.png">
-    <meta property="twitter:url" content="http://www.moviepedia.co.kr">
+<!-- linear icons -->
+<!-- https://linearicons.com/free#cdn -->
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
-    <!-- 파비콘 넣기 -->
-    <link rel="icon" href="camera.ico">
-    <link rel="apple-touch-icon" href="camera.ico">
+<!-- fontawesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 
-    <!-- reset css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+<!-- Bootstrap css -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+<!-- Bootstrap js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
-    <!-- linear icons -->
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
 
-    <!-- +++bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- reset css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+<!-- custom css -->
+<link rel="stylesheet" href="/css/main.css">
 
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/main.css">
-
-    
+<!-- 오렌지색상 ff9b30 -->
+<!-- 네이비색상 0d1a40 -->

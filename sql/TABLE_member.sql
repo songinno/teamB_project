@@ -1,4 +1,4 @@
---# DDL TABLE Members--
+------ #DDL) TABLE Members------
 --회원정보 테이블
 CREATE TABLE Members (
     mem_no NUMBER(20) -- 회원등록번호(pk)
@@ -9,14 +9,15 @@ CREATE TABLE Members (
     , CONSTRAINT pk_mem_no PRIMARY KEY (mem_no)
 );
 ALTER TABLE members ADD CONSTRAINT uniq_mem_email UNIQUE (mem_email);
+
 CREATE SEQUENCE seq_members;
 --DROP SEQUENCE seq_members;
 
-SELECT * FROM members;
+--SELECT * FROM members;
 --DROP TABLE members;
 
 
---# DDL TABLE Movies--
+------ #DDL) TABLE Movies------
 --현재 상영 영화정보 테이블
 CREATE TABLE Movies (
     movie_no NUMBER(20) -- 영화 등록번호(pk)
@@ -30,15 +31,15 @@ CREATE TABLE Movies (
     , CONSTRAINT pk_movie_no PRIMARY KEY (movie_no)
 );
 
---
+
 CREATE SEQUENCE seq_movies;
 --DROP SEQUENCE seq_movies;
 
-SELECT * FROM movies;
+--SELECT * FROM movies;
 --DROP TABLE movies;
 
 
--- #DDL TABLE Grade--
+------ #DDL) TABLE Grade------
 --영화 별점 및 코멘트 등록 정보 테이블
 CREATE TABLE Grade (
     grade_no NUMBER(20) -- 등록번호(pk)
@@ -55,10 +56,10 @@ CREATE TABLE Grade (
 CREATE SEQUENCE seq_grade;
 --DROP SEQUENCE seq_grade;
 
-SELECT * FROM grade;
+--SELECT * FROM grade;
 --DROP TABLE grade;
 
---# DDL TABLE Like_History --
+------ #DDL) TABLE Like_History ------
 --좋아요 누른 이력 정보 테이블
 --CREATE TABLE Like_history (
 --    like_his_no NUMBER(20) -- (pk) 등록번호
@@ -68,12 +69,12 @@ SELECT * FROM grade;
 
 --CREATE SEQUENCE seq_like_his; 
 
---
+
 --CREATE SEQUENCE seq_like_his;
 --DROP SEQUENCE seq_like_his;
 
 
--- # DDL TABLE Request_Board --
+------ # DDL TABLE Request_Board ------
 --고객문의글 데이터
 
 --CREATE TABLE Request_Board (
@@ -94,7 +95,7 @@ SELECT * FROM grade;
 --DROP TABLE request_board;
 
 
---# DDL TABLE Answer_Board--
+------# DDL TABLE Answer_Board------
 --고객문의 답변 데이터
 --CREATE TABLE Answer_Board (
 --    ab_no NUMBER(20) -- 답변 일련번호(pk)
@@ -140,7 +141,7 @@ VALUES (seq_grade.nextval, 1, 1, 3.5, '장르만로맨스 재밌어요ㅎㅎ');
 INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
 VALUES (seq_grade.nextval, 3, 2, 5, '이터널스 재밌어요ㅎㅎ');
 
---#좋아요 테이블 (보류)
+--#좋아요 테이블 더미데이터
 --INSERT INTO like_history VALUES (seq_like_his.nextval, 1, 1);
 --INSERT INTO like_history VALUES (seq_like_his.nextval, 1, 3);
 --INSERT INTO like_history VALUES (seq_like_his.nextval, 2, 2);
