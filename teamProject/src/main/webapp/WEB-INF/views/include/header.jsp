@@ -5,27 +5,33 @@
     <div class="inner-header">
         <h1 class="logo">
             <a href="#">
-                <img src="/img/camera.png" alt="메인 로고이미지">
+                <img src="img/main_logo.png" alt="무비피디아 로고이미지">
             </a>
         </h1>
+
+        <!-- 네비게이션 부분 -->
         <nav class="gnb">
             <ul>
-                <li><a href="#">영화</a></li>
-                <li><a href="#">TV 프로그램</a></li>
-                <li><a href="#">책</a></li>
+                <li><a href="#">박스오피스</a></li>
+                <li><a href="#">현재상영작</a></li>
+                <li><a href="#">상영예정작</a></li>
             </ul>
         </nav>
+
         <nav class="tnb">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <label>
-                    <input type="text" autocomplete="off" placeholder="콘텐츠, 인물, 컬렉션, 유저를 검색해보세요." name="searchKeyword">
-                </label>
-            </div>
             <ul>
-                <li><a href="#">로그인</a></li>
-                <li><a href="#">회원가입</a></li>
+                <li>
+                    <form action="/search" method="get" class="search">
+                        <label>
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="영화 제목을 입력하세요." name="searchKey" id="search">
+                        </label>
+                    </form>
+                </li>
+                <li><a href="/login">로그인</a></li>
+                <li><a href="/join">회원가입</a></li>
             </ul>
         </nav>
     </div>
 </header>
+<!-- //header -->

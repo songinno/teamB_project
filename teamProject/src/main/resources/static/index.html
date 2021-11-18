@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 검색 엔진 최적화(SEO) -->
-    <meta name="author" content="team2">
-    <meta name="description" content="team2's Web Site">
+    <meta name="author" content="teamB">
+    <meta name="description" content="teamB's Web Site">
 
     <!-- http://ogp.me -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="team2's MoviePedia">
-    <meta property="og:title" content="Soon9's MoviePedia">
-    <meta property="og:description" content="Welcome to team2's MoviePedia">
+    <meta property="og:site_name" content="teamB's MoviePedia">
+    <meta property="og:title" content="teamB's MoviePedia">
+    <meta property="og:description" content="Welcome to teamB's MoviePedia">
     <meta property="og:image" content="img/camera.png">
     <meta property="og:url" content="http://www.moviepedia.co.kr">
 
     <meta property="twitter:card" content="summary">
-    <meta property="twitter:site_name" content="team2's MoviePedia">
-    <meta property="twitter:title" content="team2's MoviePedia">
-    <meta property="twitter:description" content="Welcome to team2's MoviePedia">
+    <meta property="twitter:site_name" content="teamB's MoviePedia">
+    <meta property="twitter:title" content="teamB's MoviePedia">
+    <meta property="twitter:description" content="Welcome to teamB's MoviePedia">
     <meta property="twitter:image" content="img/camera.png">
     <meta property="twitter:url" content="http://www.moviepedia.co.kr">
 
@@ -33,29 +34,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
     <!-- linear icons -->
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    
+
     <!-- custom css -->
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- jquery -->
-    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 
-    <!-- libraries -->
-    <!-- scrolla js -->
-    <!-- <script src="js/scrolla.jquery.min.js" defer></script> -->
-    <!-- slick js -->
-    <!-- <script src="js/slick.min.js" defer></script> -->
-
-    <!-- custom js -->
-    <!-- <script src="js/config.js" defer></script> -->
-    <!-- <script src="js/gnb-event.js" defer></script> -->
-    <!-- <script src="js/scroll-event.js" defer></script> -->
-    
 </head>
+
 <body>
     <div class="wrap">
         <!-- header -->
@@ -63,31 +53,37 @@
             <div class="inner-header">
                 <h1 class="logo">
                     <a href="#">
-                        <img src="img/camera.png" alt="메인 로고이미지">
+                        <img src="img/main_logo.png" alt="무비피디아 로고이미지">
                     </a>
                 </h1>
+
+                <!-- 네비게이션 부분 -->
                 <nav class="gnb">
                     <ul>
-                        <li><a href="#">영화</a></li>
-                        <li><a href="#">TV 프로그램</a></li>
-                        <li><a href="#">책</a></li>
+                        <li><a href="#">박스오피스</a></li>
+                        <li><a href="#">현재상영작</a></li>
+                        <li><a href="#">상영예정작</a></li>
                     </ul>
                 </nav>
+
                 <nav class="tnb">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <label>
-                            <input type="text" autocomplete="off" placeholder="콘텐츠, 인물, 컬렉션, 유저를 검색해보세요." name="searchKeyword">
-                        </label>
-                    </div>
                     <ul>
-                        <li><a href="/">로그인</a></li>
-                        <li><a href="/">회원가입</a></li>
+                        <li>
+                            <form action="/search" method="get" class="search">
+                                <label>
+                                    <i class="fas fa-search"></i>
+                                    <input type="text" placeholder="영화 제목을 입력하세요." name="searchKey" id="search">
+                                </label>
+                            </form>
+                        </li>
+                        <li><a href="/login">로그인</a></li>
+                        <li><a href="/join">회원가입</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        
+        <!-- //header -->
+
         <!-- login-box -->
         <div class="login-box hide">
             <h1>
@@ -111,7 +107,7 @@
             </form>
         </div>
         <!-- join-box -->
-        <div class="join-box">
+        <div class="join-box display">
             <h1>
                 Movie Pedia
             </h1>
@@ -137,27 +133,93 @@
         </div>
 
 
+        <!-- section movie-content -->
+        <section class="movie-content">
+            <div class="movie-rank">
+                <div class="movie-rank-title">
+                    <p>박스오피스 순위</p>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="movie-img">
+                                <img src="https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU"
+                                    alt="영화 장르만 로맨스 이미지" class="img">
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    장르만 로맨스
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="movie-img">
+                                <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
+                                    alt="영화 이터널스 이미지" class="img">
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    이터널스
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="movie-img">
+                                <img src="https://an2-img.amz.wtchn.net/image/v2/70a085e41044b6622945c471bc8a1078.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME5qSTVOalU0TVRBMk9URTFOemsySWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LnNLNUVteTZVQWJOWjBrWWMwcFhUSW9WdDJrT0s0Nk9Qc3VNazh5bVROOG8"
+                                    alt="영화 디어에반핸슨 이미지" class="img">
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    디어 에반 핸슨
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="movie-img">
+                                <img src="https://an2-img.amz.wtchn.net/image/v2/63456fa9804b8ba4729c5e61e4d540cb.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNeU56a3hPREk1TXpBeE16VTRNalE1SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lkpxci1MZWF1Nmx3YTZLNVM4V2RUWkRhdDhqanNQWkUzQkloWXpaSnkyREU"
+                                    alt="영화 듄 이미지" class="img"></div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    듄
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="movie-img">
+                                <img src="https://an2-img.amz.wtchn.net/image/v2/c37d92cb68e27b2b9524c335b20e4bca.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNME56YzROVFV5TWpFME9EYzNPRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LkdqNFhHT3hVb0dBQ0hHZkExMXhHR3VyZnd1aGllNzVjNVlQb3JlbFp2bjA"
+                                    alt="영화 프렌치 디스패치 이미지" class="img">
+                            </div>
+                            <div class="movie-info">
+                                <div class="movie-title">
+                                    프렌치 디스패치
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- //section movie-content -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <!-- footer -->
+        <footer>
+            <ul>
+                <li>고객센터</li>
+                <li>ABOUT US</li>
+                <li> &#xa9 MOVIE PEDIA 2021 <br>All Rights Reseved</li>
+            </ul>
+        </footer>
+        <!-- //footer -->
     </div>
-    <!-- /div.wrap -->
 </body>
+
 </html>
