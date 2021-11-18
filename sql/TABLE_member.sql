@@ -10,11 +10,14 @@ CREATE TABLE Members (
 );
 ALTER TABLE members ADD CONSTRAINT uniq_mem_email UNIQUE (mem_email);
 
-CREATE SEQUENCE seq_members;
---DROP SEQUENCE seq_members;
+-- 包府磊 眠啊
+INSERT INTO members VALUES (0, '包府磊','admin@moviepedia.com', 'm1234', SYSTIMESTAMP);
 
---SELECT * FROM members;
---DROP TABLE members;
+CREATE SEQUENCE seq_members;
+DROP SEQUENCE seq_members;
+
+SELECT * FROM members ORDER BY MEM_NO;
+DROP TABLE members;
 
 
 ------ #DDL) TABLE Movies------
@@ -33,9 +36,9 @@ CREATE TABLE Movies (
 
 
 CREATE SEQUENCE seq_movies;
---DROP SEQUENCE seq_movies;
+DROP SEQUENCE seq_movies;
 
---SELECT * FROM movies;
+SELECT * FROM movies;
 --DROP TABLE movies;
 
 
@@ -54,7 +57,7 @@ CREATE TABLE Grade (
 );
 
 CREATE SEQUENCE seq_grade;
---DROP SEQUENCE seq_grade;
+DROP SEQUENCE seq_grade;
 
 --SELECT * FROM grade;
 --DROP TABLE grade;

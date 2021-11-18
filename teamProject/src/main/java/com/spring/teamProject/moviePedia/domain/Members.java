@@ -1,5 +1,6 @@
 package com.spring.teamProject.moviePedia.domain;
 
+import com.spring.teamProject.moviePedia.dto.ModMembers;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,7 +17,7 @@ public class Members {
     private String memPassword;
 
     // 자동 생성 데이터
-    private long memNo;
+    private Long memNo;
     private static long seq;
     private Date memJoinDate;
 
@@ -40,6 +41,8 @@ public class Members {
         this.memJoinDate = rs.getDate("mem_joindate");
 
     }
+
+
 
 
 }//end class

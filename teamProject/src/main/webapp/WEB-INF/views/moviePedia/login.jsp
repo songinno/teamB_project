@@ -6,6 +6,8 @@
 
 <head>
     <%@ include file="../include/static-head.jsp" %>
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>login</title>
     <style>
         .login-wrapper {
@@ -56,7 +58,6 @@
             background: #ff9b30;
             border: none;
         }
-
     </style>
 </head>
 
@@ -90,7 +91,7 @@
         </div>
     </div>
     <script>
-        
+
     </script>
 </body>
 

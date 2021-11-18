@@ -1,6 +1,7 @@
 package com.spring.teamProject.moviePedia.controller;
 
 import com.spring.teamProject.moviePedia.domain.Members;
+import com.spring.teamProject.moviePedia.dto.ModMembers;
 import com.spring.teamProject.moviePedia.service.MembersService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -8,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Log4j2
@@ -25,6 +24,7 @@ public class MembersController {
     //# 박스오피스 화면
     @GetMapping("/movie/boxoffice")
     public String boxoffice() {
+        log.info("/movie/boxoffice GET!");
         return "movie/boxoffice";
     }
 
@@ -63,16 +63,12 @@ public class MembersController {
 
     //#로그인 (이메일 AND 비밀번호 -> 회원 확인)
     @PostMapping("/login-check")
-    public String loginPost (String memEmail, String memPassword, Model model) {
-        log.info("/login-check Post! " + "email: " + memEmail + ", pw: " + memEmail);
-        Members member = membersService.getMember(memEmail, memPassword);
-
+    public String loginPost (ModMembers modMembers, Model model) {
+        log.info("/login-check POST! " + modMembers);
+        Members member = membersService.check(modMembers);
         model.addAttribute("mem", member);
-        //로그인 검증
 
-
-
-        return "";
+        return "moviePedia/success";
     }
 
 }//end class Controller

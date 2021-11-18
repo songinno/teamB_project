@@ -1,6 +1,7 @@
 package com.spring.teamProject.moviePedia.service;
 
 import com.spring.teamProject.moviePedia.domain.Members;
+import com.spring.teamProject.moviePedia.dto.ModMembers;
 import com.spring.teamProject.moviePedia.repository.MembersMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,9 +27,9 @@ public class MembersService {
     }
 
     //로그인 중간처리
-    public Members getMember(String memEmail, String memPassword) {
-
-        return membersMapper.findMember(memEmail, memPassword);
+    public Members check(ModMembers modMembers) {
+        return membersMapper.checkMember(modMembers);
     }
+
 
 }
