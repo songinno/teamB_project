@@ -127,6 +127,10 @@ section.movie-content {
     /* background: gray; */
 }
 
+section.movie-content .movie-rank:nth-child(2),
+section.movie-content .movie-rank:last-child {
+    margin-top: 50px;
+}
 section.movie-content .movie-rank .movie-rank-title {
     margin-bottom: 10px;
 }
@@ -136,33 +140,115 @@ section.movie-content .movie-rank .movie-rank-title p{
     font-weight: bold;
 }
 
-section.movie-content .movie-rank ul {
+
+section.movie-content .movie-rank .movie-box .movies ul {
     display: flex;
     justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* white-space: nowrap; */
 }
 
-section.movie-content .movie-rank ul li{
+section.movie-content .movie-rank .movie-box .movies ul li{
     margin: 10px;
 }
 
 /* 맨 첫 이미지 왼쪽 여백 없음 */
-section.movie-content .movie-rank ul li:first-child {
+section.movie-content .movie-rank .movie-box .movies ul li:first-child {
     margin-left: 0;
 }
 
+
+
 /* 영화 이미지 사이즈 설정 */
-section.movie-content .movie-rank ul li a .movie-img {
+section.movie-content .movie-rank .movie-box .movies ul li a .movie-img {
     vertical-align: top;
     width: 240px;
     height: 350px;
     overflow: hidden;
     border-radius: 5px;
+    position: relative;
 }
 
-section.movie-content .movie-rank ul li a .movie-img .img {
+section.movie-content .movie-rank .movie-box .movies ul li a .movie-img .img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+}
+
+section.movie-content .movie-rank .movie-box .movies ul li a .movie-img .rank-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    background: rgba(0,0,0,0.7);
+    font-weight: 700;
+    color: #fff;
+    position: absolute;
+    text-align: center;
+    line-height: 30px;
+    top: 5px;
+    left: 6px;
+}
+
+section.movie-content .movie-rank .movie-box .movies ul li .movie-info {
+    margin-top: 6px;
+    color: #333;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+
+/* 영화 제목 부분 스타일 */
+section.movie-content .movie-rank .movie-box .movies ul li .movie-info .movie-title {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* 별점 부분 스타일 */
+section.movie-content .movie-rank .movie-box .movies ul li .movie-info .movie-grade {
+    color: #ff9b30;
+}
+
+
+section.movie-content .movie-rank .movie-box {
+    display: flex;
+}
+
+section.movie-content .movie-rank .movie-box .arrow-btn {
+    position: relative;
+    font-size: 30px;
+    color: #ededed;
+    /* background: rgba(32,12,231,0.3); */
+    top: 180px;
+}
+
+section.movie-content .movie-rank .movie-box .arrow-btn.left {
+    right: 1305px;
+}
+
+section.movie-content .movie-rank .movie-box .arrow-btn.right {
+    right: 55px;
+}
+
+section.movie-content .movie-rank .movie-box .arrow-btn.none {
+    display: none;
+}
+
+
+
+
+/* 메뉴 클릭 시 아래로 나열될 때 여백 설정 class="five" */
+section.movie-content .movie-rank .movie-box .movies ul li.five {
+    margin-left: 0;
+}
+ 
+/* 메뉴 클릭 시 메뉴 해당하는 영화 제외 숨김 class="none" */
+section.movie-content .movie-rank.none {
+    display: none;
+}
+/* 메뉴 클릭 시 영화 아래로 나열 class="drop"*/
+section.movie-content .movie-rank .movie-box .movies ul.drop {
+    flex-wrap: wrap;
 
 }
 
