@@ -19,6 +19,9 @@ public interface MembersMapper {
     //로그인 (이메일+비번 조회)
     Members checkMember(ModMembers modMembers);
 
+    //좋아요기능
+
+
 
 
 

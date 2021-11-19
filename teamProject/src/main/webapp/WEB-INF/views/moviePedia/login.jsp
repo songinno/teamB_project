@@ -17,6 +17,7 @@
         }
 
         .login-box {
+            /* background: blue; */
             width: 30%;
             height: 500px;
 
@@ -58,6 +59,23 @@
             background: #ff9b30;
             border: none;
         }
+        .result-box {
+            /* background: yellow; */
+            width: 70%;
+            margin: 0 auto;
+            font-size: 10px;
+            font-weight: bold;
+            color: red;
+            text-align: center;
+            /* display: none; */
+        }
+        .result-box h2 {
+            font-size: 20px;
+        }
+        .fail {
+            display: block !important;
+            /* inline이든 block이던 none의 반대는 "" */
+        }
     </style>
 </head>
 
@@ -85,9 +103,13 @@
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-3">로그인</button>
                     </div>
+                    <div class="result-box ${result}">
+                        <h2>이메일 또는 비밀번호를 확인해주세요</h2>
+                    </div>
 
                 </form>
             </div>
+            
         </div>
     </div>
     <script>

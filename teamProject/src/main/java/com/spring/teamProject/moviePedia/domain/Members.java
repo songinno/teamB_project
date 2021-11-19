@@ -33,14 +33,14 @@ public class Members {
         this.memPassword = memPassword;
     }
 
-    public Members(ResultSet rs) throws SQLException {
-        this.memNo = rs.getLong("mem_no");
-        this.memName = rs.getString("mem_name");
-        this.memEmail = rs.getString("mem_email");
-        this.memPassword = rs.getString("mem_password");
-        this.memJoinDate = rs.getDate("mem_joindate");
-
-    }
+//    public Members(ResultSet rs) throws SQLException {
+//        this.memNo = rs.getLong("mem_no");
+//        this.memName = rs.getString("mem_name");
+//        this.memEmail = rs.getString("mem_email");
+//        this.memPassword = rs.getString("mem_password");
+//        this.memJoinDate = rs.getDate("mem_joindate");
+//
+//    }
 
 
 

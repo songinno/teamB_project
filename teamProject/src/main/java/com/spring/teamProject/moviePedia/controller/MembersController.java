@@ -1,6 +1,7 @@
 package com.spring.teamProject.moviePedia.controller;
 
 import com.spring.teamProject.moviePedia.domain.Members;
+import com.spring.teamProject.moviePedia.domain.Movies;
 import com.spring.teamProject.moviePedia.dto.ModMembers;
 import com.spring.teamProject.moviePedia.service.MembersService;
 import lombok.extern.log4j.Log4j2;
@@ -56,8 +57,9 @@ public class MembersController {
 
     //#로그인 화면
     @GetMapping("/login")
-    public String login() {
+    public String login(String result, Model model) {
         log.info("/login GET!");
+        model.addAttribute("result", result);
         return "moviePedia/login";
     }
 
@@ -68,7 +70,35 @@ public class MembersController {
         Members member = membersService.check(modMembers);
         model.addAttribute("mem", member);
 
-        return "moviePedia/success";
+        //회원 검증
+        try {
+            boolean emailBoolean = (modMembers.getMemEmail()).equals(member.getMemEmail());
+            log.info(emailBoolean);
+            boolean pwBoolean = (modMembers.getMemPassword()).equals(member.getMemPassword());
+            log.info(pwBoolean);
+            //▽ 이메일,비번 맞는지 검증할 필요도 없음. △여기서 이미 둘중 하나 틀리면 boolean타입이랑 null이랑 비교를 해서 NullPointerException 뜸.
+            /*
+            if (emailBoolean) {
+                log.info("이메일 일치함");
+                if (pwBoolean) {
+                    log.info("비번도 일치함");
+                    return "/moviePedia/success";
+                } else {
+                    log.info("비번이 틀림");
+                    return "/moviePeida/fail";
+                }
+            } else {
+                log.info("이메일 틀림");
+                return "/moviePeida/fail";
+            }
+            */
+        } catch (Exception NullPointerException) {
+            System.out.println("널포인트다");
+            return "redirect:/login?result=fail";
+        }
+        return "/moviePedia/main";
     }
+
+
 
 }//end class Controller
