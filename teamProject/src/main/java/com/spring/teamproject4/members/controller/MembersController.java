@@ -71,10 +71,15 @@ public class MembersController {
 
         //회원 검증
         try {
-            boolean emailBoolean = (modMembers.getMemEmail()).equals(member.getMemEmail());
-            log.info(emailBoolean);
-            boolean pwBoolean = (modMembers.getMemPassword()).equals(member.getMemPassword());
-            log.info(pwBoolean);
+            if ((modMembers.getMemEmail()).equals("admin@moviepedia.com") && (modMembers.getMemPassword()).equals("m1234")) {
+                System.out.println("관리자 계정 로그인!");
+                return "/movie/admin-page";
+            } else {
+                boolean emailBoolean = (modMembers.getMemEmail()).equals(member.getMemEmail());
+                log.info(emailBoolean);
+                boolean pwBoolean = (modMembers.getMemPassword()).equals(member.getMemPassword());
+                log.info(pwBoolean);
+            }
             //▽ 이메일,비번 맞는지 검증할 필요도 없음. △여기서 이미 둘중 하나 틀리면 boolean타입이랑 null이랑 비교를 해서 NullPointerException 뜸.
             /*
             if (emailBoolean) {

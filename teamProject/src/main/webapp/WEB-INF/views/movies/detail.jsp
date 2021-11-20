@@ -6,45 +6,111 @@
 <head>
     <%@ include file="../include/static-head.jsp" %>
     <style>
-        
+        header {
+            background: none;
+
+        }
+
+        .movie-bg-img {
+            background: bisque;
+
+            width: 100%;
+            height: 400px;
+        }
+
+        .movie-bg-img .movie-bg-box {
+            background: lightgray;
+
+            height: 400px;
+            display: flex;
+
+        }
+        .movie-bg-img .movie-bg-box .left-bg-box {
+            background: gray;
+            border: 1px solid #000;
+            flex: 2;
+        }
+        .movie-bg-img .movie-bg-box .center-bg-box {
+            background: url("/img/이터널스bg.jpg") no-repeat center;
+            border: 1px solid #000;
+            flex: 5;
+        }
+        .movie-bg-img .movie-bg-box .right-bg-box {
+            background: rgb(221, 171, 171);
+            border: 1px solid #000;
+            flex: 2;
+        }
+        .movie-bg-img .movie-info-box {
+            background: skyblue;
+            height: 500px;
+        }
+        .movie-bg-img .movie-info-box .info-box-container {
+            background: blue;
+            width: 70%;
+            margin: 0 auto;
+            height: 400px;
+            padding: 30px 30px;
+            display: flex;
+            /* flex-flow: row wrap; */
+            justify-content: space-evenly;
+        }
+
+        .movie-bg-img .movie-info-box .info-box-container .movie-poster {
+            border: 1px solid #000;
+
+            width: 300px;
+            height: 300px;
+        }
+        .movie-bg-img .movie-info-box .info-box-container .movie-info {
+
+            border: 1px solid #000;
+            width: 500px;
+            height: 300px;
+        }
     </style>
 </head>
 
 <body>
+
     <div class="wrap">
         <!-- header -->
         <%@ include file="../include/header.jsp" %>
         <!-- //header -->
 
         <section class="movie-bg-img">
-            <div class="movie-bg-container">
+            <div class="movie-bg-box">
+                <div class="left-bg-box"></div>
+                <div class="center-bg-box"></div>
+                <div class="right-bg-box"></div>
+            </div>
+            
+            <div class="movie-info-box">
+                <div class="info-box-container">
+                    <div class="movie-poster">
+                        <img src="" alt="">
+                    </div>
+                    <div class="movie-info">
+                        <div class="basic-info">
+                            <h1>${movie.movieTitle}</h1>
+                            <ul>
+                                <li>${movie.movieOpDay}</li>
+                                <li>${movie.movieGenre}</li>
+                                <li>${movie.movieCountry}</li>
+                            </ul>
+                            <h2>${movie.movieDirector}</h2>
+                            <h2>${movie.movieStory}</h2>
+                        </div>
+                        <div class="grade-info"></div>
+
+                    </div>
+                </div>
+
 
             </div>
         </section>
-        <!-- contents -->
-        <section class="contents">
+        
 
-            <div class="movie-page">
-                <ul class="movie-poster">
-                    <li class="img-">
-                        <img src="https://an2-img.amz.wtchn.net/image/v2/5802f39e2dadd2eec855e26a0e59aea5.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU56TTFORE0xTnpreE16UXdNems0SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5LmJuZFBXclFhVFp4U3hrRzMxRTFXNmxRcXdjUm9ZaVRDX1c5WlhBMUNsTEE"
-                            alt="이터널스">
-                    </li>
-                </ul>
-                <h2>영화 제목</h2>
-                <p>개봉연도 | 장르 | 제작국가<br>
-                    장르<br>
-                    출연진<br>
-                    줄거리<br>
-                </p>
-            </div>
-
-        </section>
-        <!-- //cpntents -->
-
-        <!-- footer -->
-        <%@ include file="../include/footer.jsp" %>
-        <!-- //footer -->
+        
 
     </div>
 </body>

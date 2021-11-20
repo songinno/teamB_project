@@ -1,16 +1,18 @@
 package com.spring.teamproject4.movies.controller;
 
 
+import com.spring.teamproject4.movies.domain.Movies;
 import com.spring.teamproject4.movies.service.MoviesService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@Controller
-@RestController
+@Controller
+//@RestController
 @RequiredArgsConstructor
 @Log4j2
 public class MoviesController {
@@ -29,8 +31,9 @@ public class MoviesController {
     //영화 상제정보화면 요청
     @GetMapping("/detail")
     public String detail(Long movieNo, Model model) {
-        log.info("/detail GET! " + movieNo);
-
+        log.info("/detail GET! -" + "movieNo: " + movieNo);
+        Movies movie = moviesService.get(movieNo);
+        model.addAttribute("movie", movie);
         return "movies/detail";
     }
 }
