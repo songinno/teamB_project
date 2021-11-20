@@ -10,8 +10,7 @@ CREATE TABLE Members (
 );
 ALTER TABLE members ADD CONSTRAINT uniq_mem_email UNIQUE (mem_email);
 
--- 관리자 추가
-INSERT INTO members VALUES (0, '관리자','admin@moviepedia.com', 'm1234', SYSTIMESTAMP);
+
 COMMIT;
 
 SELECT * FROM members ORDER BY mem_no;
@@ -123,35 +122,47 @@ SELECT * FROM grade;
 --DROP TABLE answer_board;
 
 --*더미 데이터 생성
+INSERT INTO members VALUES (0, '관리자','admin@moviepedia.com', 'm1234', SYSTIMESTAMP); --관리자계정
+
 INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
 VALUES (seq_members.nextval, '가나다', 'abc123@naver.com', 'a1234');
+
 INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
 VALUES (seq_members.nextval, '라마바', 'def456@naver.com', 'b1234');
+
 INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
 VALUES (seq_members.nextval, '사아자', 'ghi789@naver.com', 'c1234');
+
+select * from members;
+
 
 INSERT INTO movies
 VALUES (seq_movies.nextval, '장르만로맨스', '2021-11-17', '류승룡, 오나라, 김희원'
         , '로맨스', '대한민국'
         , '매일매일 버라이어티한 그 작가의 사생활 개봉박두!...', '김감독'); 
+        
 INSERT INTO movies
 VALUES (seq_movies.nextval, '이터널스', '2021-11-03', '안젤리나졸리, 마동석'
         ,'액션', '미국'
         , '마블 스튜디오의 <이터널스>는 수 천년에 걸쳐 그 모습을 드러내지 않고 살아온...', '이감독');
+        
 INSERT INTO movies
 VALUES (seq_movies.nextval, '디어에반핸슨', '2021-11-17', '벤플랫,줄리안무어'
         , '뮤지컬', '미국' 
         , '자신감 제로, 존재감 제로, 어딜 가든 눈에 띄지 않는 소년 ‘에반 핸슨’은...', '장감독'); 
-        
-        
-INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
-VALUES (seq_grade.nextval, 2, 3, 4.5, '디어에반핸슨 재밌어요ㅎㅎ');
-INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
-VALUES (seq_grade.nextval, 1, 1, 3.5, '장르만로맨스 재밌어요ㅎㅎ');
-INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
-VALUES (seq_grade.nextval, 3, 2, 5, '이터널스 재밌어요ㅎㅎ');
 
-commit;
+select * from movies;
+commit;  -- <-- 눌러주세요
+
+        
+--INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
+--VALUES (seq_grade.nextval, 2, 3, 4.5, '디어에반핸슨 재밌어요ㅎㅎ');
+--INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
+--VALUES (seq_grade.nextval, 1, 1, 3.5, '장르만로맨스 재밌어요ㅎㅎ');
+--INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
+--VALUES (seq_grade.nextval, 3, 2, 5, '이터널스 재밌어요ㅎㅎ');
+
+
 
 --#좋아요 테이블 더미데이터
 --INSERT INTO like_history VALUES (seq_like_his.nextval, 1, 1);

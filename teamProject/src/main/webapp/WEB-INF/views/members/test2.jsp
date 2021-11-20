@@ -19,7 +19,7 @@
     <ul class="member-list">
         <c:forEach var="m" items="${member}">
             <li>
-                #학번: ${m.memNo}, 이름: ${m.memName},
+                #회원번호: ${m.memNo}, 이름: ${m.memName},
                 이메일: ${m.memEmail}, 비번: ${m.memPassword}, 가입일: ${m.memJoinDate}
             </li>
         </c:forEach>     

@@ -27,23 +27,32 @@ class MoviesMapperTest {
     }
 
     @Test
-    void insertMovie() {
-        Movies m = new Movies
+    void insertMovie1() {
+        Movies m1 = new Movies
                 ("관상", "2021.11.01", "송강호, 조정석", "드라마",
                         "한국", "관상가 양반들의 관상놀이", "조감독");
 
-        moviesMapper.insertMovie(m);
+        moviesMapper.insertMovie(m1);
+    }
+
+    @Test
+    void insertMovie2() {
+        Movies m2 = new Movies
+                ("지울영화", "2000.01.01", "배우1,배우2", "판타지",
+                        "미국", "지울거지울겅지울거지울거", "감독1");
+
+        moviesMapper.insertMovie(m2);
     }
 
     @Test
     void deleteMovie() {
-        moviesMapper.deleteMovie(6L);
+        moviesMapper.deleteMovie(5L);
     }
 
     @Test
     void updateMovie() {
         Movies movies = new Movies();
-        movies.setMovieNo(7L);
+        movies.setMovieNo(4L);
         movies.setMovieTitle("관상_fix");
         movies.setMovieOpDay("2021.11.01");
         movies.setMovieActor("송강호, 조정석, 이종석");
