@@ -1,35 +1,24 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>무비피디아(MOVIE PEDIA) - 현재상영 영화 평가 사이트</title>
-    <!-- 파비콘 넣기 -->
-    <link rel="icon" href="/mainLogo.ico">
-    <link rel="apple-touch-icon" href="/mainLogo.ico">
-    <!-- linear icons -->
-    <!-- https://linearicons.com/free#cdn -->
-    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-
-    <!-- reset css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- custom js -->
-    <script src="./js/menuClick.js" defer></script>
-
-    <!-- 오렌지색상 ff9b30 -->
-    <!-- 네이비색상 0d1a40 -->
-
+    <%@ include file="../include/static-head.jsp" %>
+    <style>
+        .profile a {
+            display: block;
+            width: 50px;
+            height: 50px;
+            
+        }
+        .profile a img {
+            border: 1px solid rgb(116, 114, 114);
+            border-radius: 10px;
+            position: relative;
+            top: -20%;
+        }
+    </style>
 </head>
 
 <body>
@@ -62,8 +51,12 @@
                                 </label>
                             </form>
                         </li>
-                        <li><a href="/login">로그인</a></li>
-                        <li><a href="/join">회원가입</a></li>
+                        <li><a href="#">${mem.memName}님</a></li>
+                        <li class="profile">
+                            <a href="#">
+                                <img src="#" alt="프로필사진">
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -358,5 +351,6 @@
         <!-- //footer -->
     </div>
 </body>
+
 
 </html>
