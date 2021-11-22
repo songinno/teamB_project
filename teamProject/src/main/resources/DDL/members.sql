@@ -1,5 +1,7 @@
+------ #DDL) TABLE Members------
 --회원정보 테이블
 CREATE SEQUENCE seq_member;
+
 
 CREATE TABLE Members (
     mem_no NUMBER(20) -- 회원등록번호(pk)
@@ -24,5 +26,5 @@ INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
 VALUES (seq_member.nextval, '사아자', 'ghi789@naver.com', 'c1234');
 
 select * from members;
-
+drop table members;
 COMMIT;
