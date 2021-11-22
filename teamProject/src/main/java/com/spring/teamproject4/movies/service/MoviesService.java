@@ -39,7 +39,7 @@ public class MoviesService {
     }
     
     //영화 수정 중간처리
-    public boolean modify(Movies movie) {
+    public boolean modify(ModMovies movie) {
         moviesMapper.updateMovie(movie);
         return true;
     }

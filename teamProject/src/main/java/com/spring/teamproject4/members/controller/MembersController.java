@@ -79,7 +79,7 @@ public class MembersController {
         try {
             if ((modMembers.getMemEmail()).equals("admin@moviepedia.com") && (modMembers.getMemPassword()).equals("m1234")) {
                 System.out.println("관리자 계정 로그인!");
-                return "admin/admin-page";
+                return "admin/admin-main";
             } else {
                 boolean emailBoolean = (modMembers.getMemEmail()).equals(member.getMemEmail());
                 log.info(emailBoolean);
@@ -100,7 +100,7 @@ public class MembersController {
         log.info("/allMembers GET!");
         List<Members> list = membersService.getList();
         model.addAttribute("member", list);
-        return "admin/admin-members/m-list";
+        return "admin/admin-members/members-list";
     }
 
 

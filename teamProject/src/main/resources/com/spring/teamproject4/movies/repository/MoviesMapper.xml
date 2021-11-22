@@ -48,16 +48,7 @@
     <!-- 영화 수정 -->
     <update id="updateMovie">
         UPDATE movies
-        SET
-        movie_title = #{movieTitle},
-        movie_op_day = #{movieOpDay},
-        movie_director = #{movieDirector},
-        movie_actor = #{movieActor},
-        movie_genre = #{movieGenre},
-        movie_country = #{movieCountry},
-        movie_story = #{movieStory},
-        movie_img = ${movieImg},
-        update_date = SYSDATE
+        SET movie_title = #{movieTitle}, movie_op_day = #{movieOpDay}, movie_director = #{movieDirector}, movie_actor = #{movieActor}, movie_genre = #{movieGenre}, movie_country = #{movieCountry}, movie_story = #{movieStory}, movie_img = #{movieImg}, movie_bg_img = #{movieBgImg}, update_date = SYSDATE
         WHERE movie_no = #{movieNo}
     </update>
 

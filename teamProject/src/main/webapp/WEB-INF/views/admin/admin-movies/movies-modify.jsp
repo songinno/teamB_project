@@ -5,12 +5,12 @@
 <html lang="ko">
 
 <head>
-    <%@ include file="../include/admin-static-head.jsp" %>
+    <%@ include file="../../include/admin-static-head.jsp" %>
 </head>
 
 <body>
     <div class="wrap">
-        <%@ include file="../include/admin-header.jsp" %>
+        <%@ include file="../../include/admin-header.jsp" %>
 
         <div class="detail-container">
 
@@ -52,6 +52,11 @@
                     <label for="exampleFormControlInput2" class="form-label">이미지</label>
                     <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="이미지"
                         name="movieImg" value="${movie.movieImg}">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">배경이미지</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="배경이미지"
+                        name="movieBgImg" value="${movie.movieBgImg}">
                 </div>
 
                 <div class="mb-3">

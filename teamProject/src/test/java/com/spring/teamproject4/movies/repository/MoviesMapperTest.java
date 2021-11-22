@@ -64,25 +64,25 @@ class MoviesMapperTest {
 
     @Test
     void updateMovie() {
-        Movies movies = new Movies();
-        movies.setMovieNo(1L);
-        movies.setMovieTitle("장르만 로맨스");
-        movies.setMovieOpDay("2021-11-17");
-        movies.setMovieActor("류승룡, 오나라, 무진성, 김희원, 성유빈, 이유영");
-        movies.setMovieGenre("코미디/드라마");
-        movies.setMovieCountry("한국");
-        movies.setMovieStory("매일매일 버라이어티한 그 작가의 사생활 개봉박두!\n" +
-                "\n" +
-                "쿨내진동 이혼부부\n" +
-                "일촉즉발 비밀커플\n" +
-                "주객전도 스승제자\n" +
-                "알쏭달쏭 이웃사촌\n" +
-                "\n" +
-                "평범하지 않은 로맨스로 얽힌\n" +
-                "이들의 사생활이 밝혀진다!");
-        movies.setMovieDirector("조은지");
-        movies.setMovieImg("https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU");
-
-        moviesMapper.updateMovie(movies);
+//        Movies movies = new Movies();
+//        movies.setMovieNo(6L);
+//        movies.setMovieTitle("장르만 로맨스_fix");
+//        movies.setMovieOpDay("2021-11-17");
+//        movies.setMovieActor("류승룡, 오나라, 무진성, 김희원, 성유빈, 이유영");
+//        movies.setMovieGenre("코미디/드라마");
+//        movies.setMovieCountry("한국");
+//        movies.setMovieStory("매일매일 버라이어티한 그 작가의 사생활 개봉박두!\n" +
+//                "\n" +
+//                "쿨내진동 이혼부부\n" +
+//                "일촉즉발 비밀커플\n" +
+//                "주객전도 스승제자\n" +
+//                "알쏭달쏭 이웃사촌\n" +
+//                "\n" +
+//                "평범하지 않은 로맨스로 얽힌\n" +
+//                "이들의 사생활이 밝혀진다!");
+//        movies.setMovieDirector("조은지");
+//        movies.setMovieImg("https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU");
+//
+//        moviesMapper.updateMovie(movies);
     }
 }

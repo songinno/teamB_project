@@ -1,5 +1,10 @@
 package com.spring.teamproject4.movies.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter @Setter @ToString
 public class ModMovies {
 
     private Long movieNo;
@@ -10,5 +15,7 @@ public class ModMovies {
     private String movieCountry; //영화 제작 국가
     private String movieStory; //영화 줄거리
     private String movieDirector; //영화 감독
+    private String movieImg; //영화 이미지
+    private String movieBgImg; // 영화 배경이미지
 
 }

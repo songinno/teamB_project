@@ -22,7 +22,7 @@ public interface MoviesMapper {
     boolean deleteMovie(Long movieNo);
     
     //영화 수정
-    boolean updateMovie(Movies movie);
+    boolean updateMovie(ModMovies movie);
     
     
 }

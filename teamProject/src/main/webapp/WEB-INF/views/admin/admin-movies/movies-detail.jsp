@@ -4,11 +4,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <%@ include file="../include/admin-static-head.jsp" %>
+    <%@ include file="../../include/admin-static-head.jsp" %>
 </head>
 <body>
     <div class="wrap">
-        <%@ include file="../include/admin-header.jsp" %>
+        <%@ include file="../../include/admin-header.jsp" %>
         <div class="detail-container">
 
             <h1 class="main-title">등록번호 ${adMovie.movieNo}번 영화</h1>

@@ -15,3 +15,11 @@
                 return "/moviePeida/fail";
             }
             */
+
+*그라데이션 효과
+background: linear-gradient(
+                to right,
+                rgba(184,184,184,1) 10%,
+                rgba(184,184,184,0.5) 50%,
+                rgba(184,184,184,0) 100%
+                );

@@ -5,12 +5,12 @@
 <html lang="ko">
 
 <head>
-    <%@ include file="../include/admin-static-head.jsp" %>
+    <%@ include file="../../include/admin-static-head.jsp" %>
 </head>
 
 <body>
     <div class="wrap">
-        <%@ include file="../include/admin-header.jsp" %>
+        <%@ include file="../../include/admin-header.jsp" %>
 
         <div class="detail-container">
 

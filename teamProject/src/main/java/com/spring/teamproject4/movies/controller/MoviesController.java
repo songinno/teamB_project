@@ -2,6 +2,7 @@ package com.spring.teamproject4.movies.controller;
 
 
 import com.spring.teamproject4.movies.domain.Movies;
+import com.spring.teamproject4.movies.dto.ModMovies;
 import com.spring.teamproject4.movies.service.MoviesService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -51,7 +52,7 @@ public class MoviesController {
         log.info("/detail GET! -" + "movieNo: " + movieNo);
         Movies movie = moviesService.get(movieNo);
         model.addAttribute("movie", movie);
-        return "movie/detail";
+        return "movies/detail";
     }
 
     //=================관리자 페이지===================
@@ -62,7 +63,7 @@ public class MoviesController {
         log.info("moviesList main GET!");
         List<Movies> moviesList = moviesService.getList();
         model.addAttribute("mList", moviesList);
-        return "movie/admin-list";
+        return "admin/admin-movies/movies-list";
     }
 
     // - 영화 상세화면 요청 : /admin/movies/detail : GET
@@ -71,14 +72,14 @@ public class MoviesController {
         log.info("admin/movies/detail POST! - " + movieNo);
         Movies movie = moviesService.get(movieNo);
         model.addAttribute("adMovie", movie);
-        return "movie/admin-detail";
+        return "admin/admin-movies/movies-detail";
     }
 
     // - 영화 등록화면 요청 : admin/movies/upload : GET
     @GetMapping("/admin/movies/upload")
     public String adUpload() {
         log.info("admin/movies/upload GET!");
-        return "movie/admin-write";
+        return "admin/admin-movies/movies-write";
     }
 
     // - 영화 등록요청 : /admin/movies/upload : POST
@@ -103,13 +104,13 @@ public class MoviesController {
         log.info("admin/movies/modify GET! - " + movieNo);
         Movies movies = moviesService.get(movieNo);
         model.addAttribute("movie", movies);
-        return "movie/admin-modify";
+        return "admin/admin-movies/movies-modify";
     }
 
 
     // - 영화 수정요청 : /admin/movies/modify : POST
     @PostMapping("/admin/movies/modify")
-    public String modify(Movies movie) {
+    public String modify(ModMovies movie) {
         log.info("admin/movies/modify POST! - " + movie);
         moviesService.modify(movie);
         return "redirect:/admin/movies/detail?movieNo=" + movie.getMovieNo();
