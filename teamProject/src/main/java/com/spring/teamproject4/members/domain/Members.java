@@ -15,30 +15,13 @@ public class Members {
 
     // 자동 생성 데이터
     private Long memNo;
-    private static long seq;
     private Date memJoinDate;
 
-    public Members() {
-        this.memNo = ++seq;
-        System.out.println("멤버객체 생성됨");
-    }
-
     public Members(String memName, String memEmail, String memPassword) {
-        this();
         this.memName = memName;
         this.memEmail = memEmail;
         this.memPassword = memPassword;
     }
-
-//    public Members(ResultSet rs) throws SQLException {
-//        this.memNo = rs.getLong("mem_no");
-//        this.memName = rs.getString("mem_name");
-//        this.memEmail = rs.getString("mem_email");
-//        this.memPassword = rs.getString("mem_password");
-//        this.memJoinDate = rs.getDate("mem_joindate");
-//
-//    }
-
 
 
 

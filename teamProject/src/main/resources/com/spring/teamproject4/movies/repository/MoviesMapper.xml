@@ -13,6 +13,10 @@
         <result column="movie_country" property="movieCountry"/>
         <result column="movie_story" property="movieStory"/>
         <result column="movie_director" property="movieDirector"/>
+        <result column="movie_img" property="movieImg"/>
+        <result column="movie_bg_img" property="movieBgImg"/>
+        <result column="reg_date" property="regDate"/>
+        <result column="update_date" property="updateDate"/>
     </resultMap>
 
     <!-- 영화 목록 조회 -->
@@ -30,8 +34,8 @@
 
     <!-- 영화 등록 -->
     <insert id="insertMovie">
-        INSERT INTO movies (movie_no, movie_title, movie_op_day, movie_actor, movie_genre, movie_country, movie_story, movie_director)
-        VALUES (seq_movies.nextval, #{movieTitle}, #{movieOpDay}, #{movieActor}, #{movieGenre}, #{movieCountry}, #{movieStory}, #{movieDirector})
+        INSERT INTO movies (movie_no, movie_title, movie_op_day, movie_actor, movie_genre, movie_country, movie_story, movie_director, movie_img, movie_bg_img)
+        VALUES (seq_movie.nextval, #{movieTitle}, #{movieOpDay}, #{movieActor}, #{movieGenre}, #{movieCountry}, #{movieStory}, #{movieDirector}, #{movieImg}, #{movieBgImg})
     </insert>
 
 
@@ -45,10 +49,15 @@
     <update id="updateMovie">
         UPDATE movies
         SET
-            movie_title = #{movieTitle}, movie_op_day = #{movieOpDay},
-            movie_actor = #{movieActor}, movie_genre = #{movieGenre},
-            movie_country = #{movieCountry}, movie_story = #{movieStory},
-            movie_director = #{movieDirector}
+        movie_title = #{movieTitle},
+        movie_op_day = #{movieOpDay},
+        movie_director = #{movieDirector},
+        movie_actor = #{movieActor},
+        movie_genre = #{movieGenre},
+        movie_country = #{movieCountry},
+        movie_story = #{movieStory},
+        movie_img = ${movieImg},
+        update_date = SYSDATE
         WHERE movie_no = #{movieNo}
     </update>
 

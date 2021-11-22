@@ -1,0 +1,17 @@
+*회원검증시
+//▽ 이메일,비번 맞는지 검증할 필요도 없음. △여기서 이미 둘중 하나 틀리면 boolean타입이랑 null이랑 비교를 해서 NullPointerException 뜸.
+            /*
+            if (emailBoolean) {
+                log.info("이메일 일치함");
+                if (pwBoolean) {
+                    log.info("비번도 일치함");
+                    return "/moviePedia/success";
+                } else {
+                    log.info("비번이 틀림");
+                    return "/moviePeida/fail";
+                }
+            } else {
+                log.info("이메일 틀림");
+                return "/moviePeida/fail";
+            }
+            */

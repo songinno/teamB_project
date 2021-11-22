@@ -1,5 +1,7 @@
 ------ #DDL) TABLE Members------
 --회원정보 테이블
+CREATE SEQUENCE seq_member;
+
 CREATE TABLE Members (
     mem_no NUMBER(20) -- 회원등록번호(pk)
     , mem_name VARCHAR2(50) --회원이름
@@ -10,40 +12,79 @@ CREATE TABLE Members (
 );
 ALTER TABLE members ADD CONSTRAINT uniq_mem_email UNIQUE (mem_email);
 
+--*더미 데이터 생성
+INSERT INTO members VALUES (0, '관리자','admin@moviepedia.com', 'm1234', SYSTIMESTAMP); --관리자계정
+
+INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
+VALUES (seq_member.nextval, '가나다', 'abc123@naver.com', 'a1234');
+
+INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
+VALUES (seq_member.nextval, '라마바', 'def456@naver.com', 'b1234');
+
+INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
+VALUES (seq_member.nextval, '사아자', 'ghi789@naver.com', 'c1234');
+
+select * from members;
 
 COMMIT;
-
-SELECT * FROM members ORDER BY mem_no;
-
-
-CREATE SEQUENCE seq_members;
-DROP SEQUENCE seq_members;
-
-SELECT * FROM members ORDER BY MEM_NO;
-DROP TABLE members;
 
 
 ------ #DDL) TABLE Movies------
 --현재 상영 영화정보 테이블
-CREATE TABLE Movies (
-    movie_no NUMBER(20) -- 영화 등록번호(pk)
-    , movie_title VARCHAR2(100) -- 영화 제목
-    , movie_op_day DATE -- 영화 개봉일
-    , movie_actor VARCHAR2(500) -- 출연진
-    , movie_genre VARCHAR2(20) -- 장르
-    , movie_country VARCHAR2(20) -- 국가
-    , movie_story VARCHAR2(2000) -- 줄거리
-    , movie_director VARCHAR2(20) -- 감독
-    
-    , CONSTRAINT pk_movie_no PRIMARY KEY (movie_no)
+
+CREATE SEQUENCE seq_movie;
+DROP SEQUENCE seq_movie;
+
+CREATE TABLE movies (
+    movie_no NUMBER(20),
+    movie_title VARCHAR2(100) NOT NULL,
+    movie_op_day varchar2(20),
+    movie_director varchar2(20) NOT NULL,
+    movie_actor VARCHAR2(500),
+    movie_genre VARCHAR2(20),
+    movie_country VARCHAR2(20),
+    movie_story VARCHAR2(2000),
+    movie_img VARCHAR2(4000),
+    movie_bg_img VARCHAR2(4000), -- 영화 배경 이미지 추가
+    reg_date DATE DEFAULT SYSDATE, --데이터 등록일 컬럼 추가
+    CONSTRAINT pk_movie_no PRIMARY KEY (movie_no)
 );
 
+-- 데이터 수정시간 기록 컬럼
+ALTER TABLE movies ADD update_date DATE;
 
-CREATE SEQUENCE seq_movies;
-DROP SEQUENCE seq_movies;
+---- 영화 배경 이미지 추가 (테이블 새로 안만들려면 이걸로 추가)
+--ALTER TABLE movies ADD movie_bg_img VARCHAR2(4000);
 
-SELECT * FROM movies;
+
 DROP TABLE movies;
+
+
+COMMIT;
+
+--ALTER TABLE movies
+--MODIFY (movie_title VARCHAR2(100) NOT NULL);
+
+--ALTER TABLE movies
+--ADD (movie_director varchar2(20) NOT NULL);
+
+--ALTER TABLE movies
+--MODIFY (movie_op_day varchar2(20));
+
+select * from movies;
+
+UPDATE movies
+SET movie_title = '장르만 로맨스', movie_op_day='2021-11-17', movie_director='조은지', movie_actor='류승룡, 오나라, 무진성, 김희원, 성유빈, 이유영',
+movie_genre='코미디/드라마', movie_country='한국',
+movie_story=' 매일매일 버라이어티한 그 작가의 사생활 개봉박두! 쿨내진동 이혼부부 일촉즉발 비밀커플 주객전도 스승제자 알쏭달쏭 이웃사촌 평범하지 않은 로맨스로 얽힌 이들의 사생활이 밝혀진다!',
+movie_img='https://an2-img.amz.wtchn.net/image/v2/ff693f2671c804e7e54fb0c47fc07073.jpg?jwt=ZXlKaGJHY2lPaUpJVXpJMU5pSjkuZXlKaVlXTnJaM0p2ZFc1a0lqcDdJbklpT2pJMU5Td2laeUk2TWpVMUxDSmlJam95TlRWOUxDSmpjbTl3SWpwMGNuVmxMQ0pvWldsbmFIUWlPamN3TUN3aWNHRjBhQ0k2SWk5Mk1pOXpkRzl5WlM5cGJXRm5aUzh4TmpNMU9ERTJOVFl6TlRVNE5ETTVNRFl3SWl3aWNYVmhiR2wwZVNJNk9EQXNJbmRwWkhSb0lqbzBPVEI5Lm5wRGxvcHl1OTZvektROEU0ZUhuZW9QcGNsM3A5d2lIOTAzLTE5YVJhSVU'
+, update_date = SYSDATE
+WHERE movie_no=1;
+
+commit;
+
+
+
 
 
 ------ #DDL) TABLE Grade------
@@ -121,40 +162,10 @@ SELECT * FROM grade;
 --SELECT * FROM answer_board;
 --DROP TABLE answer_board;
 
---*더미 데이터 생성
-INSERT INTO members VALUES (0, '관리자','admin@moviepedia.com', 'm1234', SYSTIMESTAMP); --관리자계정
-
-INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
-VALUES (seq_members.nextval, '가나다', 'abc123@naver.com', 'a1234');
-
-INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
-VALUES (seq_members.nextval, '라마바', 'def456@naver.com', 'b1234');
-
-INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
-VALUES (seq_members.nextval, '사아자', 'ghi789@naver.com', 'c1234');
-
-select * from members;
 
 
-INSERT INTO movies
-VALUES (seq_movies.nextval, '장르만로맨스', '2021-11-17', '류승룡, 오나라, 김희원'
-        , '로맨스', '대한민국'
-        , '매일매일 버라이어티한 그 작가의 사생활 개봉박두!...', '김감독'); 
-        
-INSERT INTO movies
-VALUES (seq_movies.nextval, '이터널스', '2021-11-03', '안젤리나졸리, 마동석'
-        ,'액션', '미국'
-        , '마블 스튜디오의 <이터널스>는 수 천년에 걸쳐 그 모습을 드러내지 않고 살아온...', '이감독');
-        
-INSERT INTO movies
-VALUES (seq_movies.nextval, '디어에반핸슨', '2021-11-17', '벤플랫,줄리안무어'
-        , '뮤지컬', '미국' 
-        , '자신감 제로, 존재감 제로, 어딜 가든 눈에 띄지 않는 소년 ‘에반 핸슨’은...', '장감독'); 
 
-select * from movies;
-commit;  -- <-- 눌러주세요
-
-        
+--#grade 테이블 더미데이터        
 --INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)
 --VALUES (seq_grade.nextval, 2, 3, 4.5, '디어에반핸슨 재밌어요ㅎㅎ');
 --INSERT INTO grade (grade_no, mem_no, movie_no, grade, grade_comment)

@@ -15,12 +15,12 @@
     <!-- 회원가입 -->
     <insert id="join">
         INSERT INTO members (mem_no, mem_name, mem_email, mem_password)
-        VALUES (seq_members.nextval, #{memName}, #{memEmail}, #{memPassword})
+        VALUES (seq_member.nextval, #{memName}, #{memEmail}, #{memPassword})
     </insert>
 
     <!-- 전체회원조회 -->
     <select id="findAll" resultMap="membersResultMap">
-        SELECT * FROM members ORDER BY mem_no;
+        SELECT * FROM members ORDER BY mem_no
     </select>
 
     <!-- 로그인(이메일+비번으로 사람찾기) -->

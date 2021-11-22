@@ -19,24 +19,13 @@ public class Movies {
     private String movieStory; //영화 줄거리
     private String movieDirector; //영화 감독
 
+    private String movieImg; //영화 이미지
+    private String movieBgImg; //영화 배경 이미지
+
     //자동 생성 데이터
     private Long movieNo; //영화 번호
 
-    private static long seq_movie;
+    private Date regDate; //작성시간
+    private Date updateDate; //최종수정시간
 
-
-    public Movies() {
-        this.movieNo = ++seq_movie;
-    }
-
-    public Movies(String movieTitle, String movieOpDay, String movieActor, String movieGenre, String movieCountry, String movieStory, String movieDirector) {
-        this();
-        this.movieTitle = movieTitle;
-        this.movieOpDay = movieOpDay;
-        this.movieActor = movieActor;
-        this.movieGenre = movieGenre;
-        this.movieCountry = movieCountry;
-        this.movieStory = movieStory;
-        this.movieDirector = movieDirector;
-    }
 }
