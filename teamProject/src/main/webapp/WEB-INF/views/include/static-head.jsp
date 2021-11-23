@@ -22,12 +22,14 @@
 
 <!-- Bootstrap js -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
-
-
+<!-- Bootstrap css -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- reset css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
 <!-- custom css -->
 <link rel="stylesheet" href="/css/main.css">
+<!-- jquery (++3rytl)-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- 오렌지색상 ff9b30 -->
 <!-- 네이비색상 0d1a40 -->

@@ -29,5 +29,17 @@
         WHERE mem_email = #{memEmail} AND mem_password = #{memPassword}
     </select>
 
+    <!-- (+21.11.22) 단일회원조회 (email로 검색) -->
+    <select id="getMember" resultMap="membersResultMap">
+        SELECT * FROM members
+        WHERE mem_email = #{targetKeyword}
+    </select>
+    <!-- (+21.11.22) 이메일 중복확인 기능 -->
+    <select id="isDuplicateEmail" resultType="int">
+        SELECT COUNT(*) FROM members
+        WHERE mem_email = #{targetKeyword}
+    </select>
+
+
 
 </mapper>

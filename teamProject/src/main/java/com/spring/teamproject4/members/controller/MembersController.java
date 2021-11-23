@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -50,10 +51,19 @@ public class MembersController {
     //#회원가입 post
     @PostMapping("/join")
     public String joinPost(Members members, Model model) {
-        membersService.register(members);
+        membersService.signUp(members);
         log.info("/join POST!" + members);
         model.addAttribute("mem", members);
         return "members/join-result";
+    }
+
+    //(+21.11.23) 이메일 중복확인 비동기 통신요청
+    @GetMapping("/check")
+    @ResponseBody
+    public boolean check(String checkEmail) {
+        log.info("/check 비동기 요청 GET! " + checkEmail);
+
+        return membersService.isDuplicateEmail(checkEmail);
     }
 
 

@@ -132,7 +132,7 @@
             border: 2px solid #0d1a40;
             border-radius: 10px;
             width: 500px;
-            height: 300px;
+            /* height: 300px; */
             padding: 30px 20px;
 
             position: relative;

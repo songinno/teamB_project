@@ -23,3 +23,5 @@ background: linear-gradient(
                 rgba(184,184,184,0.5) 50%,
                 rgba(184,184,184,0) 100%
                 );
+
+*onsubmit
