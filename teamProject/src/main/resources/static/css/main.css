@@ -65,13 +65,18 @@ header .inner-header {
     color: #555;
     /* background: pink; */
     vertical-align: center;
-    
+
+}
+
+header .inner-header .logo {
+    flex: 1.2;
 }
 
 header .inner-header .gnb {
     margin: 20px 0;
     /* background: orange; */
-    
+    flex: 2;
+
 }
 
 header .inner-header .gnb li a {
@@ -95,7 +100,7 @@ header .inner-header .tnb ul li:last-child {
 header .inner-header .tnb {
     margin: 20px 0;
     /* background: orange; */
-    
+
 }
 
 header .inner-header .tnb .search {
@@ -119,11 +124,11 @@ header .inner-header .tnb .search {
 section.movie-content {
     position: relative;
     width: 70%;
-    margin: 0 auto;
-    padding-top: 100px;
+    margin: 0 auto 100px;
+    padding-top: 80px;
     min-height: 600px;
     max-width: 80%;
-    overflow: hidden;
+    /* overflow: hidden; */
     /* background: gray; */
 }
 
@@ -131,11 +136,12 @@ section.movie-content .movie-rank:nth-child(2),
 section.movie-content .movie-rank:last-child {
     margin-top: 50px;
 }
+
 section.movie-content .movie-rank .movie-rank-title {
     margin-bottom: 10px;
 }
 
-section.movie-content .movie-rank .movie-rank-title p{
+section.movie-content .movie-rank .movie-rank-title p {
     font-size: 24px;
     font-weight: bold;
 }
@@ -144,12 +150,12 @@ section.movie-content .movie-rank .movie-rank-title p{
 section.movie-content .movie-rank .movie-box .movies ul {
     display: flex;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
-    /* white-space: nowrap; */
+    flex-wrap: wrap;
+    white-space: nowrap;
 }
 
-section.movie-content .movie-rank .movie-box .movies ul li{
-    margin: 10px;
+section.movie-content .movie-rank .movie-box .movies ul li {
+    margin: 10px 10px 20px;
 }
 
 /* 맨 첫 이미지 왼쪽 여백 없음 */
@@ -162,8 +168,8 @@ section.movie-content .movie-rank .movie-box .movies ul li:first-child {
 /* 영화 이미지 사이즈 설정 */
 section.movie-content .movie-rank .movie-box .movies ul li a .movie-img {
     vertical-align: top;
-    width: 240px;
-    height: 350px;
+    width: 220px;
+    height: 320px;
     overflow: hidden;
     border-radius: 5px;
     position: relative;
@@ -180,7 +186,7 @@ section.movie-content .movie-rank .movie-box .movies ul li a .movie-img .rank-nu
     width: 30px;
     height: 30px;
     border-radius: 2px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     font-weight: 700;
     color: #fff;
     position: absolute;
@@ -237,15 +243,16 @@ section.movie-content .movie-rank .movie-box .arrow-btn.none {
 
 
 
-/* 메뉴 클릭 시 아래로 나열될 때 여백 설정 class="five" */
-section.movie-content .movie-rank .movie-box .movies ul li.five {
+/*아래로 나열될 때 여백 설정 */
+section.movie-content .movie-rank .movie-box .movies ul li {
     margin-left: 0;
 }
- 
+
 /* 메뉴 클릭 시 메뉴 해당하는 영화 제외 숨김 class="none" */
 section.movie-content .movie-rank.none {
     display: none;
 }
+
 /* 메뉴 클릭 시 영화 아래로 나열 class="drop"*/
 section.movie-content .movie-rank .movie-box .movies ul.drop {
     flex-wrap: wrap;
@@ -268,4 +275,3 @@ footer ul {
     padding: 20px 0 40px;
     min-height: 300px;
 }
-

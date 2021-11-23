@@ -12,6 +12,7 @@
 
         }
 
+
         .movie-bg-img {
             background: bisque;
 
@@ -28,7 +29,7 @@
         }
 
         .movie-bg-img .movie-bg-box .left-bg-box {
-            background: #B8B8B8;
+            background: #fff;
             /* rgb(184,184,184) */
             flex: 2;
         }
@@ -44,9 +45,9 @@
             flex: 1.5;
 
             background: linear-gradient(to right,
-                    rgba(184, 184, 184, 1) 10%,
-                    rgba(184, 184, 184, 0.5) 50%,
-                    rgba(184, 184, 184, 0) 100%);
+                    rgb(255, 254, 254, 1) 10%,
+                    rgba(235, 235, 235, 0.5) 50%,
+                    rgba(241, 240, 240, 0) 100%);
         }
 
         .movie-bg-img .movie-bg-box .center-bg-box .center-center {
@@ -59,18 +60,18 @@
             flex: 1.5;
 
             background: linear-gradient(to left,
-                    rgba(184, 184, 184, 1) 10%,
-                    rgba(184, 184, 184, 0.5) 50%,
-                    rgba(184, 184, 184, 0) 100%);
+                    rgb(255, 254, 254, 1) 10%,
+                    rgba(235, 235, 235, 0.5) 50%,
+                    rgba(241, 240, 240, 0) 100%);
         }
 
         .movie-bg-img .movie-bg-box .right-bg-box {
-            background: #B8B8B8;
+            background: #fff;
             flex: 2;
         }
 
         .movie-bg-img .movie-info-box {
-            background: lightgray;
+            background: #fff;
             height: 1500px;
         }
 
@@ -79,25 +80,25 @@
             /* background: gray; */
             width: 60%;
             margin: 0 auto;
-            padding: 50px 50px;
+            padding: 10px 50px;
             display: flex;
             flex-flow: row wrap;
             justify-content: space-evenly;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid #bbb;
         }
 
         .movie-bg-img .movie-info-box .info-box-container .movie-poster-box {
-            width: 200px;
+            width: 220px;
             /* background: rgb(104, 226, 220); */
         }
 
         .movie-bg-img .movie-info-box .info-box-container .movie-poster-box .movie-poster {
-            border: 4px double white;
+            border: 3px solid white;
             border-radius: 5px;
             height: 300px;
 
             position: relative;
-            top: -100px;
+            top: -50px;
         }
 
         .movie-bg-img .movie-info-box .info-box-container .movie-poster-box .movie-poster img {
@@ -111,10 +112,9 @@
             /* background: yellowgreen; */
             /* border: 1px solid #000; */
             text-align: center;
-            padding: 0 5px;
 
             position: relative;
-            bottom: 50px;
+            bottom: 40px;
         }
 
         .movie-bg-img .movie-info-box .info-box-container .movie-poster-box .grade-box h2 {
@@ -129,10 +129,10 @@
 
         .movie-bg-img .movie-info-box .info-box-container .movie-info {
 
-            border: 2px solid #0d1a40;
+            /* border: 2px solid #aaa; */
             border-radius: 10px;
             width: 500px;
-            /* height: 300px; */
+            height: 300px;
             padding: 30px 20px;
 
             position: relative;
@@ -141,7 +141,7 @@
 
         .movie-bg-img .movie-info-box .info-box-container .movie-info .basic-info h1 {
             font-weight: bold;
-            font-size: 1.3em;
+            font-size: 1.5em;
             margin-bottom: 15px;
         }
 
@@ -149,13 +149,14 @@
             display: flex;
             padding-bottom: 15px;
             margin-bottom: 15px;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid #bbb;
             /* background: yellow; */
         }
 
         .movie-bg-img .movie-info-box .info-box-container .movie-info .basic-info h2 {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
+
 
         .movie-bg-img .movie-info-box .info-box-container .movie-info .basic-info h2 span {
             font-weight: bold;
@@ -167,6 +168,32 @@
             /* background: gray; */
             line-height: 1.4;
             text-align: justify;
+        }
+
+        .movie-comment {
+            background: #f3f3f3;
+        }
+
+        .movie-comment .movie-comment-box {
+            width: 60%;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .movie-comment .movie-comment-box .comment-list {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .movie-comment .movie-comment-box .comment-list li {
+            border: 1px solid #fff;
+            border-radius: 4px;
+            background: rgb(206, 206, 206);
+            padding: 8px 10px;
+            font-size: 0.8em;
+            font-weight: normal;
+            line-height: 2;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -189,6 +216,10 @@
                 <div class="right-bg-box"></div>
             </div>
 
+
+        </section>
+
+        <section class="movie-bg-img">
             <div class="movie-info-box">
                 <div class="info-box-container">
                     <div class="movie-poster-box">
@@ -209,14 +240,40 @@
                                 <li>${movie.movieCountry}</li>
                             </ul>
                             <h2><span>감독</span> ${movie.movieDirector}</h2>
+                            <h2><span>출연</span> ${movie.movieActor}</h2>
                             <h2><span>줄거리</span></h2>
                             <p>${movie.movieStory}</p>
                         </div>
                     </div>
                 </div>
-
-
             </div>
+        </section>
+
+        <section class="movie-comment">
+            <div class="movie-comment-box">
+                <ul class="comment-list">
+                    <span>코멘트</span>
+                    <li>
+                        <h1>이름</h1>
+                        <h2>별점</h2>
+                        <p>코멘트 내용</p>
+                        <span>작성일자</span>
+                    </li>
+                    <li>
+                        <h1>이름</h1>
+                        <h2>별점</h2>
+                        <p>코멘트 내용</p>
+                        <span>작성일자</span>
+                    </li>
+                    <li>
+                        <h1>이름</h1>
+                        <h2>별점</h2>
+                        <p>코멘트 내용</p>
+                        <span>작성일자</span>
+                    </li>
+                </ul>
+            </div>
+
         </section>
 
 
