@@ -25,3 +25,30 @@ background: linear-gradient(
                 );
 
 *onsubmit
+
+-------------------------------
+<!-- 회원가입 form -->
+                <form id="join-form" action="/join" method="post" onsubmit="return pwCheck();">
+                    <div class="mb-3">
+                        <input type="text" name="memName" class="form-control" id="input-name" placeholder="이름"
+                            autocomplete="off" required minlength="2" maxlength="6" size="8">
+                        <!-- 2~6글자로 막아놓음. -->
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" name="memEmail" class="form-control" id="input-email" placeholder="이메일"
+                            autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" name="memPassword" class="form-control" id="input-pw1" placeholder="비밀번호"
+                            autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="input-pw2" placeholder="비밀번호 재입력"
+                            autocomplete="off">
+                    </div>
+
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary mb-3">회원가입</button>
+                    </div>
+
+                </form>

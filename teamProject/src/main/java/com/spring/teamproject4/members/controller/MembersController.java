@@ -1,18 +1,17 @@
 package com.spring.teamproject4.members.controller;
 
 import com.spring.teamproject4.members.domain.Members;
+import com.spring.teamproject4.members.domain.LoginFlag;
 import com.spring.teamproject4.members.dto.ModMembers;
 import com.spring.teamproject4.members.service.MembersService;
-import com.spring.teamproject4.movies.domain.Movies;
-import com.spring.teamproject4.movies.service.MoviesService;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Log4j2
@@ -69,38 +68,25 @@ public class MembersController {
 
     //#로그인 화면
     @GetMapping("/login")
-    public String login(String result, Model model) {
+    public String login(String result) {
         log.info("/login GET!");
-        model.addAttribute("result", result);
         return "members/login";
     }
 
-    //#로그인 (이메일 AND 비밀번호 -> 회원 확인)
+    //#로그인 검증
     @PostMapping("/login-check")
-    public String loginPost (ModMembers modMembers, Model model) {
-        log.info("/login-check POST! " + modMembers);
-        Members member = membersService.check(modMembers);
-        model.addAttribute("mem", member);
+    public String loginCheck(ModMembers member, HttpSession session, Model model) {
+        log.info("/login-check POST! " + member);
 
-//        List<Movies> moviesList = moviesService.getList();
-//        model.addAttribute("mList", moviesList);
+        LoginFlag flag = membersService.check(member);
+        log.info(flag);
+        model.addAttribute("flag", flag);
 
-        //회원 검증
-        try {
-            if ((modMembers.getMemEmail()).equals("admin@moviepedia.com") && (modMembers.getMemPassword()).equals("m1234")) {
-                System.out.println("관리자 계정 로그인!");
-                return "admin/admin-main";
-            } else {
-                boolean emailBoolean = (modMembers.getMemEmail()).equals(member.getMemEmail());
-                log.info(emailBoolean);
-                boolean pwBoolean = (modMembers.getMemPassword()).equals(member.getMemPassword());
-                log.info(pwBoolean);
-            }
-        } catch (Exception NullPointerException) {
-            System.out.println("널포인트다");
-            return "redirect:/login?result=fail";
+        if (flag == LoginFlag.SUCCESS) {
+            session.setAttribute("loginUser", membersService.getMember(member));
+            return "redirect:/";
         }
-        return "main/login-index";
+        return "members/login";
     }
 
     //=================관리자 페이지===================

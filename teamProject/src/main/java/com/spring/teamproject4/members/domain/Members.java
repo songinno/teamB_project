@@ -1,5 +1,6 @@
 package com.spring.teamproject4.members.domain;
 
+import com.spring.teamproject4.grade.domain.Grade;
 import lombok.*;
 
 import java.util.Date;

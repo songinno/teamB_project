@@ -17,5 +17,6 @@ public class ModMovies {
     private String movieDirector; //영화 감독
     private String movieImg; //영화 이미지
     private String movieBgImg; // 영화 배경이미지
+    private int rank;
 
 }

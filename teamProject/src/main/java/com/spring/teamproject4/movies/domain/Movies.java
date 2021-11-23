@@ -1,5 +1,6 @@
 package com.spring.teamproject4.movies.domain;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,6 +19,7 @@ public class Movies {
     private String movieCountry; //영화 제작 국가
     private String movieStory; //영화 줄거리
     private String movieDirector; //영화 감독
+    private int rank; //박스오피스순위
 
     private String movieImg; //영화 이미지
     private String movieBgImg; //영화 배경 이미지

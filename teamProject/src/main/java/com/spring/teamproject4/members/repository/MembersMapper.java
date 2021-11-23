@@ -18,7 +18,7 @@ public interface MembersMapper {
     //로그인 (이메일+비번 조회)
     Members checkMember(ModMembers modMembers);
 
-    //(+21.11.22)
+
     //단일회원정보 조회 기능 (+21.11.22)
     Members getMember(String email);
 

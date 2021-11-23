@@ -1,5 +1,6 @@
 package com.spring.teamproject4.movies.service;
 
+import com.spring.teamproject4.common.paging.Page;
 import com.spring.teamproject4.movies.domain.Movies;
 import com.spring.teamproject4.movies.dto.ModMovies;
 import com.spring.teamproject4.movies.repository.MoviesMapper;
@@ -18,9 +19,14 @@ public class MoviesService {
     private final MoviesMapper moviesMapper; //의존관계
 
     //영화 목록 중간처리
-    public List<Movies> getList() {
-        List<Movies> movieList = moviesMapper.getMovieList();
+    public List<Movies> getList(Page page) {
+        List<Movies> movieList = moviesMapper.getMovieList(page);
         return movieList;
+    }
+
+    public List<Movies> getSearchList(Page page) {
+        List<Movies> movies = moviesMapper.getMovieList(page);
+        return movies;
     }
 
     //영화 상세조회 중간처리
@@ -42,6 +48,11 @@ public class MoviesService {
     public boolean modify(ModMovies movie) {
         moviesMapper.updateMovie(movie);
         return true;
+    }
+
+    //총 게시물 수 조회 중간처리
+    public int getCount(Page page) {
+        return moviesMapper.getTotalCount(page);
     }
 
 

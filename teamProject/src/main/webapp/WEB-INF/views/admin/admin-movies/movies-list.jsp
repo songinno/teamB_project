@@ -43,6 +43,7 @@
                     <th>영화 감독</th>
                     <th>개봉일</th>
                     <th>등록일</th>
+                    <th>박스오피스 순위</th>
                 </tr>
 
                 <c:forEach var="m" items="${mList}">
@@ -53,10 +54,11 @@
                         </td>
                         <td>${m.movieDirector}</td>
                         <td>${m.movieOpDay}</td>
-                        
+
                         <td>
-                            <fmt:formatDate value="${m.regDate}" pattern="yyyy년 MM월 dd일 a hh:mm" />                            
+                            <fmt:formatDate value="${m.regDate}" pattern="yyyy년 MM월 dd일 a hh:mm" />
                         </td>
+                        <td>${m.rank}</td>
                     </tr>
                 </c:forEach>
             </table>

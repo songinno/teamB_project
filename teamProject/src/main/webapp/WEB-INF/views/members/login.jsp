@@ -59,6 +59,7 @@
             background: #ff9b30;
             border: none;
         }
+
         .result-box {
             /* background: yellow; */
             width: 70%;
@@ -69,9 +70,11 @@
             text-align: center;
             /* display: none; */
         }
+
         .result-box h2 {
             font-size: 20px;
         }
+
         .fail {
             display: block !important;
             /* inline이든 block이던 none의 반대는 "" */
@@ -101,19 +104,22 @@
                             autocomplete="off">
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3">로그인</button>
+                        <button id="login-btn" type="submit" class="btn btn-primary mb-3">로그인</button>
                     </div>
-                    <div class="result-box hide ${result}">
-                        <h2>이메일 또는 비밀번호를 확인해주세요</h2>
-                    </div>
-
                 </form>
             </div>
-            
+
         </div>
     </div>
     <script>
+        //flag는 submit이 우선 이루어져야 값이 발생함.
+        const flag = '${flag}';
 
+        if (flag === 'NO_EMAIL') {
+            alert('가입되지 않은 이메일입니다.');
+        } else if (flag === 'WRONG_PW') {
+            alert('비밀번호가 틀립니다.');
+        }
     </script>
 </body>
 

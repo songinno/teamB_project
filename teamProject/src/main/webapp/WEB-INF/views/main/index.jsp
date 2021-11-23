@@ -61,12 +61,19 @@
                             <form action="/search" method="get" class="search">
                                 <label>
                                     <span class="lnr lnr-magnifier"></span>
-                                    <input type="text" placeholder="영화를 검색해보세요." name="searchKey" id="search">
+                                    <input type="text" placeholder="영화를 검색해보세요." name="keyword" id="search">
                                 </label>
                             </form>
                         </li>
-                        <li><a href="/login">로그인</a></li>
-                        <li><a href="/join">회원가입</a></li>
+                        <c:if test="${loginUser == null}">
+                            <li><a href="/login">로그인</a></li>
+                            <li><a href="/join">회원가입</a></li>
+                        </c:if>
+
+                        <c:if test="${loginUser != null}">
+                            <li><a href="#">${loginUser.memName}</a></li>
+                            <li style="text-decoration: underline;"><a href="/logout">로그아웃</a></li>
+                        </c:if>
                     </ul>
                 </nav>
             </div>
@@ -195,6 +202,10 @@
         </footer>
         <!-- //footer -->
     </div>
+
+    <script>
+        
+    </script>
 </body>
 
 </html>

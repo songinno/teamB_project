@@ -29,8 +29,15 @@
                         </label>
                     </form>
                 </li>
-                <li><a href="/login">로그인</a></li>
-                <li><a href="/join">회원가입</a></li>
+                <c:if test="${loginUser == null}">
+                    <li><a href="/login">로그인</a></li>
+                    <li><a href="/join">회원가입</a></li>
+                </c:if>
+
+                <c:if test="${loginUser != null}">
+                    <li><a href="#">${loginUser.memName}</a></li>
+                    <li style="text-decoration: underline;"><a href="/logout">로그아웃</a></li>
+                </c:if>
             </ul>
         </nav>
     </div>

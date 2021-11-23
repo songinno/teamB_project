@@ -1,6 +1,9 @@
 package com.spring.teamproject4.movies.controller;
 
 
+import com.spring.teamproject4.common.paging.Page;
+import com.spring.teamproject4.common.paging.PageMaker;
+import com.spring.teamproject4.members.domain.Members;
 import com.spring.teamproject4.movies.domain.Movies;
 import com.spring.teamproject4.movies.dto.ModMovies;
 import com.spring.teamproject4.movies.service.MoviesService;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -35,33 +39,48 @@ public class MoviesController {
 
     private final MoviesService moviesService;
 
-    //영화 목록 요청
-    //메인페이지를 jsp페이지로 변경.
+    //메인화면 요청
     @GetMapping("")
-    public String movies(Model model) {
+    public String movies(Model model, Page page) {
         log.info("moviesList main GET!");
-        List<Movies> moviesList = moviesService.getList();
+        List<Movies> moviesList = moviesService.getList(page);
         model.addAttribute("mList", moviesList);
+        model.addAttribute("pageInfo", new PageMaker(page, moviesService.getCount(page)));
+
 
         return "main/index";
     }
 
     //영화 상제정보화면 요청
     @GetMapping("/detail")
-    public String detail(Long movieNo, Model model) {
+    public String detail(Long movieNo, Model model, HttpSession session) {
         log.info("/detail GET! -" + "movieNo: " + movieNo);
         Movies movie = moviesService.get(movieNo);
         model.addAttribute("movie", movie);
+        Members member = (Members) session.getAttribute("loginUser");
+//        if (member == null) {
+//            return "redirect:/login";
+//        }
         return "movies/detail";
+    }
+
+    // - 영화 검색 요청
+    @GetMapping("/search")
+    public String search(Model model, Page page) {
+        log.info("moviesList main GET!");
+        List<Movies> moviesList = moviesService.getList(page);
+        model.addAttribute("mList", moviesList);
+        model.addAttribute("pageInfo", new PageMaker(page, moviesService.getCount(page)));
+        return "movies/search";
     }
 
     //=================관리자 페이지===================
 
     // - 영화 목록요청: /admin/movies/list : GET
     @GetMapping("/admin/movies/list")
-    public String adList(Model model) {
+    public String adList(Model model, Page page) {
         log.info("moviesList main GET!");
-        List<Movies> moviesList = moviesService.getList();
+        List<Movies> moviesList = moviesService.getList(page);
         model.addAttribute("mList", moviesList);
         return "admin/admin-movies/movies-list";
     }

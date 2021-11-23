@@ -27,6 +27,11 @@
                         name="movieDirector" >
                 </div>
                 <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">박스오피스 순위</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="박스오피스 순위"
+                        name="rank">
+                </div>
+                <div class="mb-3">
                     <label for="exampleFormControlInput2" class="form-label">출연 배우</label>
                     <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="출연 배우"
                         name="movieActor">
@@ -50,6 +55,11 @@
                     <label for="exampleFormControlInput2" class="form-label">이미지</label>
                     <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="이미지"
                         name="movieImg">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput2" class="form-label">배경 이미지</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="배경이미지"
+                        name="movieBgImg">
                 </div>
 
                 <div class="mb-3">

@@ -6,11 +6,11 @@
 <head>
     <%@ include file="../include/static-head.jsp" %>
     <style>
-        header {
+        /* header {
             background: none;
             border: none;
 
-        }
+        } */
 
 
         .movie-bg-img {
@@ -171,6 +171,7 @@
         }
 
         .movie-comment {
+            margin: 50px auto;
             background: #f3f3f3;
         }
 
@@ -178,6 +179,16 @@
             width: 60%;
             margin: 0 auto;
             padding: 15px 0;
+        }
+
+        .movie-comment .movie-comment-box form {
+            display: flex;
+        }
+
+        .movie-comment .movie-comment-box input {
+            border: 1px solid #ff9b30;
+            position: relative;
+            bottom: 30px;
         }
 
         .movie-comment .movie-comment-box .comment-list {
@@ -194,6 +205,13 @@
             font-weight: normal;
             line-height: 2;
             margin-top: 10px;
+        }
+
+        #no-login {
+            /* background: yellow; */
+            color: red;
+            position: relative;
+            left: 40%;
         }
     </style>
 </head>
@@ -249,8 +267,43 @@
             </div>
         </section>
 
+
+
         <section class="movie-comment">
+
             <div class="movie-comment-box">
+                <c:if test="${loginUser != null}">
+                    <form action="/grade-check" method="post">
+                        <div class="grading-box">
+                            <h1>평점 선택 ▽</h1>
+                            <input type="text" list="grade">
+                            <datalist id="grade">
+                                <option>0</option>
+                                <option>0.5</option>
+                                <option>1</option>
+                                <option>1.5</option>
+                                <option>2</option>
+                                <option>2.5</option>
+                                <option>3</option>
+                                <option>3.5</option>
+                                <option>4</option>
+                                <option>4.5</option>
+                                <option>5</option>
+                            </datalist>
+                            <textarea name="gradeComment" id="text-box" cols="80" rows="4">
+
+                            </textarea>
+                        </div>
+                        <input type="hidden" name="movieNo" value="${movie.movieNo}">
+                        <input type="hidden" name="gradeWriter" value="${loginUser.memName}">
+                        <button type="submit">등록</button>
+                    </form>
+                </c:if>
+                <c:if test="${loginUser == null}">
+                    <a id="no-login" href="/login">코멘트 등록은 로그인이 필요합니다.</a>
+                </c:if>
+
+
                 <ul class="comment-list">
                     <span>코멘트</span>
                     <li>
@@ -272,14 +325,29 @@
                         <span>작성일자</span>
                     </li>
                 </ul>
+                
             </div>
 
         </section>
-
-
-
-
+        <%@ include file="../include/footer.jsp" %>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

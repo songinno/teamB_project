@@ -1,5 +1,6 @@
 package com.spring.teamproject4.movies.repository;
 
+import com.spring.teamproject4.common.paging.Page;
 import com.spring.teamproject4.movies.domain.Movies;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,9 @@ class MoviesMapperTest {
     @Autowired MoviesMapper moviesMapper;
 
     @Test
-    void getMovieList() {
+    void getMovieList(Page page) {
         System.out.println("========================");
-        System.out.println(moviesMapper.getMovieList());
+        System.out.println(moviesMapper.getMovieList(page));
         System.out.println("========================");
     }
 
