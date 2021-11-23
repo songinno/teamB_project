@@ -74,6 +74,7 @@
                             <li><a href="#">${loginUser.memName}</a></li>
                             <li style="text-decoration: underline;"><a href="/logout">로그아웃</a></li>
                         </c:if>
+
                     </ul>
                 </nav>
             </div>

@@ -67,13 +67,15 @@
             <h1>무비피디아 관리자 페이지입니다.</h1>
 
             <div class="btn-box">
-                <button class="btn btn-dark">
-                    <a href="/admin/members/list"> 1. 회원관리</a>
+                
+                <button id="to-list" type="button" class="btn btn-dark">
+                      영화 관리페이지 이동
                 </button>
 
-                <button id="to-list" type="button" class="btn btn-dark">
-                    2. 영화 관리페이지 이동
+                <button class="btn btn-dark">
+                    <a href="/"> 나가기</a>
                 </button>
+                
             </div>
 
         </section>
