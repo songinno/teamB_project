@@ -96,7 +96,7 @@
                                     <a href="/detail?movieNo=${mList.movieNo}">
                                         <div class="movie-img">
                                             <img src="${mList.movieImg}" alt="${mList.movieTitle}" class="img">
-                                            <div class="rank-num">${mList.movieNo}</div>
+                                            <div class="rank-num">${mList.rank}</div>
                                         </div>
                                         <div class="movie-info">
                                             <div class="movie-title">${mList.movieTitle}</div>

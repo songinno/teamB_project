@@ -14,8 +14,6 @@
         <nav class="gnb">
             <ul>
                 <li><a href="/movie/boxoffice">박스오피스</a></li>
-                <li><a href="/movie/screening">현재상영작</a></li>
-                <li><a href="/movie/screenyet">상영예정작</a></li>
             </ul>
         </nav>
 
